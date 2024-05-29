@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "lander-grande": ['"Lander Grande"', "sans-serif"],
+        "sodo-sans": ['"SoDo Sans"', "sans-serif"],
+        "MaleoTrials-Bold": ['"MaleoTrials Bold"', "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
