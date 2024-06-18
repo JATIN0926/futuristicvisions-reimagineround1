@@ -2,15 +2,21 @@
 import React from "react";
 import { motion } from "framer-motion"
 import Image from "next/image";
+import cursorEffect from "./script";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
 
 const AboutUs = () => {
   return <div
-  className="outer-container"
+  className="outer-container" id="aboutUs"
 >
+<div id="cursor" className="fixed  !m-0 !p-0 translate-x-[-50%] translate-y-[50%] min-h-[7vw] min-w-[7vw] bg-[#006240] box-border text-white rounded-full z-[99] flex items-center font-700 justify-center">About Us</div>
   <div
-    className="relative w-full min-h-screen bg-[#F1F0EA] max-w-full flex flex-row items-center justify-center gap-5 text-[#006240]"
+    className="relative w-full min-h-screen bg-[#F1F0EA] max-w-full flex flex-row items-center justify-center gap-5 z-0 text-[#006240]"
   >
-  
+    
     <motion.div 
     
     initial={{
@@ -53,12 +59,6 @@ const AboutUs = () => {
       </p>
 
     </motion.div>
-    <div className="relative w-100rem flex items-end justify-start self-end !my-40 max-w-full gap-10rem  " >
-    <div className="relative left-90rem top-90vh w-[7.5rem] h-[7.5rem]  text-[#F1F0EA] text-center rounded-full bg-[#006240] overflow-hidden shrink-0 flex flex-row items-center justify-center pt-[3.125rem] pb-[3.062rem] pr-[0.375rem] pl-[0.437rem] box-border z-[2]">
-    <div className="flex-1 relative ">About us</div>
-    </div> 
-      
-    </div>
   </div>
 </div>
 };
