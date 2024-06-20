@@ -115,3 +115,6 @@
 ::-webkit-scrollbar{
   display: none;
 }
+body{
+  background-color: #F1F0EA;
+}

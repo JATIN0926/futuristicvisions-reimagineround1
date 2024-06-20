@@ -7,6 +7,7 @@ import Navbar from "@/components/HomePage/Navbar/Navbar";
 import Flavours from "@/components/HomePage/Flavours/Flavours";
 import Footer from "@/components/HomePage/Footer/Footer";
 import Environment from "@/components/HomePage/Environment/Environment";
+import NewFlavours from "@/components/HomePage/NewFlavours/NewFlavours";
 
 export default function Home() {
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutUs />
+      <NewFlavours />
       <Flavours />
       <Environment />
       <Footer />
