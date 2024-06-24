@@ -1,0 +1,28 @@
+.custom-cursor {
+    position: absolute;
+    z-index: 1000;
+    padding: 0.1rem;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:4.5rem ;
+    height:4.5rem;
+    background-color: #006240; 
+    color: #F0DFB0;
+    border-radius: 50%;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .card:hover .custom-cursor {
+    opacity: 1;
+  }
+  
+  .custom-cursor-visible {
+    opacity: 1 !important;
+  }
+  .hide-cursor{
+    cursor: none;
+  }

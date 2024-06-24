@@ -1,0 +1,30 @@
+@keyframes textChange {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes logoCenter {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc(50vh - 50%));
+    }
+  }
+  
+  .animate-text-change {
+    animation: textChange 1s forwards;
+  }
+  
+  .animate-logo-center {
+    animation: logoCenter 2s forwards;
+  }
+  
+  .animate-logo-move {
+    transition: transform 2s ease;
+  }
+  

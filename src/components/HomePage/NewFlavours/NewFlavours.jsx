@@ -60,7 +60,7 @@ const NewFlavours = () => {
   const scale = useMotionValue(1);
 
   useMotionValueEvent(scrollYProgress, "change", (value) => {
-    const newScale = 1 - value * 1.1;
+    const newScale = 1 - value * 0.5;
     scale.set(newScale);
     if (value >= 0.4 && !animationTriggered) {
       setTimeout(() => setHideMainCup(true), 1500); // Hide the main cup immediately

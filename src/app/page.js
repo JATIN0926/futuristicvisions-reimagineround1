@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import AboutUs from "@/components/HomePage/AboutUs/AboutUs";
 import Hero from "@/components/HomePage/Hero/Hero";
@@ -8,6 +8,8 @@ import Flavours from "@/components/HomePage/Flavours/Flavours";
 import Footer from "@/components/HomePage/Footer/Footer";
 import Environment from "@/components/HomePage/Environment/Environment";
 import NewFlavours from "@/components/HomePage/NewFlavours/NewFlavours";
+import Products from "@/components/HomePage/Products/Products";
+import Loader from "@/components/Loader/Loader";
 
 export default function Home() {
   useEffect(() => {
@@ -16,15 +18,24 @@ export default function Home() {
       const locomotiveScroll = new LocomotiveScroll();
     })();
   }, []);
+  const [loaded, setLoaded] = useState(false);
   return (
-    <main className="flex flex-col gap-8 max-w-[100vw]">
-      <Navbar />
-      <Hero />
-      <AboutUs />
-      <NewFlavours />
-      <Flavours />
-      <Environment />
-      <Footer />
-    </main>
+    <div className="relative">
+      {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
+      <div
+        className={`flex flex-col gap-8 max-w-[100vw] transition-opacity duration-500 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <Navbar />
+        <Hero />
+        <Products />
+        <AboutUs />
+        <NewFlavours />
+        <Flavours />
+        <Environment />
+        <Footer />
+      </div>
+    </div>
   );
 }
