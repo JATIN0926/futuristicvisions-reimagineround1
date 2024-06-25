@@ -4,7 +4,7 @@ import Column from "./Column";
 
 const Footer = () => {
   return (
-    <div className="bg-[#006240] h-[70vh] w-screen max-w-full p-2 py-10 font-sodo-sans text-white">
+    <div className="bg-[#006240] h-[60vh] w-screen max-w-full p-2 py-10 font-sodo-sans text-white">
       <div className="flex flex-col items-center justify-between h-full">
         <div className="w-full flex items-center justify-around">
           <div className="flex flex-col items-start justify-center gap-5 w-[25%] pl-12">
