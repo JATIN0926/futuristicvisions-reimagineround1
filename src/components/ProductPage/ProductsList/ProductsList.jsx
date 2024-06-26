@@ -11,25 +11,27 @@ const ProductsList = () => {
   );
   return (
     <div className="w-screen max-w-full flex items-start justify-center p-2 py-4">
-      <div className="w-[85%]">
+      <div className=" w-[95%] laptop:w-[85%]">
         <div className="flex flex-col items-center justify-center gap-10 w-full">
           <div className="w-full flex items-center justify-between">
             <h1 className=" font-MaleoTrials-Bold text-3xl font-light text-[#006240]">
               Shop in Comfort
             </h1>
-            <div className="flex items-center justify-center w-[30%]">
-              <button className="bg-[#02754B] rounded-md text-white p-1.5 pl-4 w-[50%] flex items-center justify-start gap-2">
+            <div className="flex items-center justify-center w-[45%] laptop:w-[35%] tbPortrait:w-[30%]">
+              <button className="bg-[#02754B] rounded-md text-white p-1.5 pl-4 w-[45%] laptop:w-[50%] flex items-center justify-start gap-2">
                 <Image
                   src="/icons/WheelChair.svg"
                   width={20}
                   height={20}
                   alt=""
                 />
-                <h1 className="text-lg font-medium">Dine In</h1>
+                <h1 className=" text-sm laptop:text-lg font-medium">Dine In</h1>
               </button>
               <button className="bg-white rounded-md p-1.5 pl-4 w-[50%] flex items-center justify-start gap-2">
                 <Image src="/icons/Basket.svg" width={20} height={20} alt="" />
-                <h1 className="text-lg font-medium">Take Away</h1>
+                <h1 className="text-sm laptop:text-lg  font-medium">
+                  Take Away
+                </h1>
               </button>
             </div>
           </div>
@@ -59,7 +61,7 @@ const ProductsList = () => {
               </h1>
             ))}
           </div>
-          <div className="w-full flex items-center justify-start gap-5 flex-wrap">
+          <div className="w-full flex items-center justify-start gap-0 tbPortrait:gap-3 flex-wrap">
             {filteredProducts.map((product) => (
               <Card key={product.id} product={product} />
             ))}

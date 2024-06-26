@@ -86,7 +86,7 @@ const Card = ({ product }) => {
   return (
     <div
       ref={cardRef}
-      className="group relative p-4 overflow-hidden m-2 h-[21rem] bg-white rounded-lg flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-1/2 laptop:basis-[22%] mbMedSmall:basis-3/5 mbXSmall:basis-3/4 mbMini:basis-[95%] tbLandscape:basis-4/12 card"
+      className="group relative p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-lg flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[60%] mbXSmall:basis-[55%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[23%] tbPortrait:basis-[22%] card"
       onClick={handleCardClick}
     >
       <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-[#F0DFB0] rounded-full transform -translate-x-[50%] translate-y-[70%] transition-transform duration-300 group-hover:translate-y-[60%]"></div>
@@ -129,8 +129,12 @@ const Card = ({ product }) => {
           />
         </div>
         <div className="w-full font-sodo-sans">
-          <h1 className="text-lg text-start font-semibold">{product.name}</h1>
-          <p className="font-medium">{product.price}</p>
+          <h1 className="text-sm mbXSmall:text-lg text-start font-semibold">
+            {product.name}
+          </h1>
+          <p className="font-medium text-[0.8rem] mbXSmall:text-base">
+            {product.price}
+          </p>
         </div>
       </div>
       {cursorVisible && count === 0 && (

@@ -12,9 +12,9 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const overlayRef = useRef(null);
-  const buttonRef = useRef(null);
 
   const [currentImage, setCurrentImage] = useState("/images/flav1.png");
+  const [containerHeight, setContainerHeight] = useState("150vh");
 
   const texts = [
     "Authentically Sourced Coffee Beans",
@@ -29,13 +29,25 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
   ];
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const totalSections = texts.length;
+      let heightFactor = 140;
+
+      if (window.innerWidth >= 600) {
+        heightFactor = 135;
+      } else if (window.innerWidth >= 400 && window.innerWidth < 600) {
+        heightFactor = 138;
+      } else if (window.innerWidth < 400) {
+        heightFactor = 135;
+      }
+
+      setContainerHeight(`${totalSections * heightFactor}vh`);
+    }
+
     const container = containerRef.current;
     const textElement = textRef.current;
     const imageElement = imageRef.current;
     const overlayElement = overlayRef.current;
-
-    const totalSections = texts.length;
-    const containerHeight = window.innerHeight * totalSections;
 
     ScrollTrigger.create({
       trigger: container,
@@ -63,7 +75,7 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
     ScrollTrigger.create({
       trigger: container,
       start: "top top",
-      end: `+=${containerHeight}`,
+      end: `+=${window.innerHeight * texts.length}`,
       pin: true,
       pinSpacing: false,
       scrub: 1,
@@ -127,36 +139,38 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
     <>
       <div
         className="outer-container"
-        style={{ height: `${texts.length * 100}vh` }}
+        style={{
+          height: containerHeight,
+        }}
       >
         <div
           ref={containerRef}
-          className="relative overflow-x-hidden w-full min-h-screen bg-[#006240] flex items-center justify-center gap-5 text-white"
+          className="relative overflow-x-hidden w-full min-h-screen bg-[#006240] flex flex-col mbXSmall:flex-row items-center justify-center gap-5 text-white p-6 mbSmall:p-0"
         >
-          <div className="flex flex-col items-start justify-center gap-3 w-1/2">
-            <p className="text-xl font-semibold tracking-[0.3rem] font-MaleoTrials-Bold">
+          <div className="flex flex-col items-center mbXSmall:items-start justify-center gap-2 mbSmall:gap-3 tbLandscape:gap-6 w-[90%] min-[300px]:w-[85%] mbXSmall:w-[80%] mbSmall:w-1/2">
+            <p className=" text-[0.65rem] mbSmall:text-sm mbMedium:text-base laptop:text-lg tbPortrait:text-xl tbMedium:text-2xl tbLandscape:text-3xl font-semibold tracking-[0.2rem] mbSmall:tracking-[0.3rem] font-MaleoTrials-Bold">
               Never Compromise Your Taste
             </p>
             <h1
               ref={textRef}
-              className="text-5xl leading-snug font-lander-grande"
+              className=" text-xl mbXSmall:text-lg mbSmall:text-2xl mbMedium:text-3xl laptop:text-4xl tbPortrait:text-5xl tbMedium:text-[3.5rem] tbLandscape:text-6xl w-[100%] mbSmall:w-[85%] mbSmall:leading-tight mbMedium:leading-tight laptop:leading-snug tbPortrait:leading-snug tbLandscape:leading-normal text-center mbXSmall:text-start font-lander-grande"
             >
               {texts[0]}
             </h1>
-            <p className="text-lg leading-relaxed font-sodo-sans w-[95%] font-light not-italic tracking-wide">
+            <p className="text-[0.58rem] mbSmall:text-xs mbMedium:text-sm laptop:text-base tbPortrait:text-lg tbMedium:text-xl tbLandscape:text-2xl leading-relaxed font-sodo-sans w-[100%] mbSmall:w-[95%] text-center mbXSmall:text-start font-light not-italic tracking-wide">
               At Starbucks, you can choose from a wide variety of flavors, or
               tweak your drink to match your personal taste. Enjoy a customized
               coffee experience made just for you.
             </p>
           </div>
 
-          <div className="w-[30%] h-[30rem] relative">
+          <div className="w-[80%] mbXSmall:w-[60%] mbSmall:w-[30%] h-[60%] mbSmall:h-[80%] relative">
             <Image
               ref={imageRef}
               src={currentImage}
               alt="flav"
               fill
-              className="object-cover origin-top"
+              className=" object-cover mbXSmall:object-contain origin-top aspect-auto"
             />
             <div
               ref={overlayRef}
@@ -165,7 +179,6 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
           </div>
         </div>
       </div>
-      <div className="h-screen w-full max-w-full"></div>
     </>
   );
 };

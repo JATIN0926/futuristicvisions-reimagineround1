@@ -4,6 +4,9 @@
     --slide-height: 19rem;
     --slide-spacing: 0rem;
     --slide-size: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
   .embla__viewport {
     overflow: hidden;
@@ -11,7 +14,6 @@
   .embla__container {
     backface-visibility: hidden;
     display: flex;
-    gap: 0.6rem;
     touch-action: pan-y;
     margin-left: calc(var(--slide-spacing) * -1);
   }
@@ -64,6 +66,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  @media (min-width: 280px) and (max-width: 600px) {
+    .embla__button{
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
   .embla__button:disabled {
     color: var(--detail-high-contrast);
