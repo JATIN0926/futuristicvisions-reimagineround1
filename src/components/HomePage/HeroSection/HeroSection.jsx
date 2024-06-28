@@ -12,6 +12,7 @@ import {
   Text,
   Image,
   useHelper,
+  Text3D,
 } from "@react-three/drei";
 import Cup from "./Cup";
 import { useGSAP } from "@gsap/react";
@@ -41,14 +42,18 @@ const HeroSection = () => {
         .from(textRef.current.scale, { x: 0, y: 0, z: 0, duration: 3 }, 9);
     }, []);
 
+    
+
     return (
-      <mesh className="StarHeading" rotation-x={-0.5 * Math.PI}>
+      <mesh className=" font-sodo-sans text-4xl" rotation-x={-0.5 * Math.PI}>
         <Text
           ref={textRef}
-          position={[0, 2.3, 0.3]}
+          position={[0, 2, 0.3]}
           scale={2}
-          color={0xd4e9e2}
-          className=" font-sodo-sans"
+          color={0xD4E9E2}
+          fontSize={1}
+          font="/3D/SoDoSans-Black.ttf"
+          // className=" font-sodo-sans text-4xl"
         >
           STARBUCKS
         </Text>

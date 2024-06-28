@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap'); */
 
  
  .hero{
     /* background-color: #027430; */
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     /* padding: 20px; */
     margin: 0;
     padding: 0;
-    height: 550px;
+    height: 650px;
     /* background-color: #01784e; */
     /* background-color: #006136; */
     background-color: #006240;
@@ -72,9 +72,7 @@
   }
 
 
-  .theLast{
-    height: 1000px;
-  }
+
 
   .main-heading-incanvas{
     font-size: 110px;
@@ -96,6 +94,6 @@
     left: 50%;
   }
 
- .StarHeading{
+ /* .StarHeading{
     font-family: "Sansita", sans-serif;
- }
+ } */

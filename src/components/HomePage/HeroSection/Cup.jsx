@@ -32,7 +32,7 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null} ref={cupRef}>
-      <group scale={0.5} position={[0, -1.33, 0]}>
+      <group scale={0.48} position={[0, -1.33, 0]}>
         <mesh
           geometry={nodes.Circle_Material002_0.geometry}
           material={materials["Material.002"]}

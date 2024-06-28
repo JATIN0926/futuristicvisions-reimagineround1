@@ -1,12 +1,10 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+  } */
   
-  body {
-    background-color: #F1F0EA;
-  }
+
 
 body::-webkit-scrollbar{
   display: none;
@@ -18,7 +16,7 @@ body::-webkit-scrollbar{
 
   /* trying regarding the navbar */
   
-  a{
+  /* a{
     padding: 2px;
     margin: 0 10px;
     text-decoration: none;
@@ -31,7 +29,7 @@ body::-webkit-scrollbar{
   }
   
   nav{
-    /* width: 27%; */
+    width: 27%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,7 +55,7 @@ body::-webkit-scrollbar{
   
   input{
     border-radius: 20px;
-  }
+  } */
   
   /* trying regarding the hero-section */
   
@@ -71,8 +69,8 @@ body::-webkit-scrollbar{
   }
   
   canvas{
-    padding: 20px;
-    height: 450px;
+    padding: 0px;
+    height: 470px;
     background-color: #006240;
     display: block;
   }
