@@ -11,6 +11,8 @@ module.exports = {
         "lander-grande": ['"Lander Grande"', "sans-serif"],
         "sodo-sans": ['"SoDo Sans"', "sans-serif"],
         "MaleoTrials-Bold": ['"MaleoTrials Bold"', "sans-serif"],
+        "MaleoTrials-Medium": ['"MaleoTrials Medium"', "sans-serif"],
+        "MaleoTrials-Regular": ['"MaleoTrials Regular"', "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

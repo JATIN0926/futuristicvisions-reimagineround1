@@ -30,10 +30,10 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <Products />
-        <AboutUs />
+        {/* <AboutUs /> */}
         <NewFlavours />
         <Flavours />
-        <Environment />
+        {/* <Environment /> */}
         <Footer />
       </div>
     </div>

@@ -86,7 +86,7 @@ const Card = ({ product }) => {
   return (
     <div
       ref={cardRef}
-      className="group relative p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-lg flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[60%] mbXSmall:basis-[55%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[23%] tbPortrait:basis-[22%] card"
+      className="group relative p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-lg flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[70%] mbXSmall:basis-[45%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[23%] tbPortrait:basis-[22%] card"
       onClick={handleCardClick}
     >
       <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-[#F0DFB0] rounded-full transform -translate-x-[50%] translate-y-[70%] transition-transform duration-300 group-hover:translate-y-[60%]"></div>
@@ -120,13 +120,15 @@ const Card = ({ product }) => {
         </div>
       )}
       <div className="relative z-10 flex flex-col items-center h-full justify-between w-full">
-        <div className="h-[90%] mt-5 w-[100%] relative">
-          <Image
-            src={product.image}
-            fill
-            alt={product.name}
-            className="object-cover"
-          />
+        <div className="h-[90%] w-[90%] relative">
+          <div className="relative w-full h-full">
+            <Image
+              src={product.image}
+              fill
+              alt={product.name}
+              className=" object-contain rounded-lg aspect-square"
+            />
+          </div>
         </div>
         <div className="w-full font-sodo-sans">
           <h1 className="text-sm mbXSmall:text-lg text-start font-semibold">
