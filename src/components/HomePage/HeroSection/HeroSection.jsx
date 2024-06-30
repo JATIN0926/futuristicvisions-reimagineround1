@@ -1,5 +1,10 @@
-import React from "react";
-import { useState, Suspense, useRef, useEffect, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+  Suspense,
+} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   ScrollControls,
@@ -8,20 +13,24 @@ import {
   Text,
   useHelper,
 } from "@react-three/drei";
-import Cup from "./Cup";
 import gsap from "gsap";
 import "./style.css";
+import Cup from "./Cup";
 import BackGround from "./BackGround";
 import TopView from "./TopView";
 import { DirectionalLightHelper } from "three";
 
 const useResize = () => {
   const [size, setSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: typeof window !== "undefined" ? window.innerWidth : 0,
+    height: typeof window !== "undefined" ? window.innerHeight : 0,
   });
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const handleResize = () => {
       setSize({
         width: window.innerWidth,
@@ -38,13 +47,22 @@ const useResize = () => {
 
 const HeroSection = () => {
   const { width, height } = useResize();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   function PopingUp() {
     const textRef = useRef();
     const scroll = useScroll();
     const tl = useRef();
 
-    useFrame((state, delta) => {
+    useFrame(() => {
       tl.current.seek(scroll.offset * tl.current.duration());
     });
 
@@ -58,8 +76,8 @@ const HeroSection = () => {
         .from(textRef.current.scale, { x: 0, y: 0, z: 0, duration: 3 }, 9);
     }, []);
 
-    var fontSize = 1;
-    var fontHeight = 2;
+    let fontSize = 1;
+    let fontHeight = 2;
 
     if (width < 1200) {
       fontSize = 0.8;
@@ -82,7 +100,7 @@ const HeroSection = () => {
     }
 
     return (
-      <mesh className=" font-sodo-sans text-4xl" rotation-x={-0.5 * Math.PI}>
+      <mesh className="font-sodo-sans text-4xl" rotation-x={-0.5 * Math.PI}>
         <Text
           ref={textRef}
           position={[0, fontHeight, 0.3]}
@@ -116,48 +134,46 @@ const HeroSection = () => {
 
   if (width >= 400) {
     return (
-      <>
-        <div className="hero">
-          <div
-            style={{ zIndex: 19 }}
-            id="canvas-container"
-            className="canvas-container"
+      <div className="hero">
+        <div
+          style={{ zIndex: 19 }}
+          id="canvas-container"
+          className="canvas-container"
+        >
+          <Canvas
+            camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 5, 0] }}
+            shadows
           >
-            <Canvas
-              camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 5, 0] }}
-              shadows
-            >
-              <ScrollControls pages={3} damping={0.3}>
-                <ambientLight intensity={0} />
-                <spotLight
-                  position={[0, 25, 0]}
-                  angle={1.3}
-                  penumbra={1}
-                  intensity={2}
-                  shadow-bias={-0.0001}
-                />
-                <TopView />
-                <Suspense fallback={null}>
-                  <Cup />
-                </Suspense>
-                <BackGround />
-                <Environment preset="sunset" />
-                <PopingUp />
-              </ScrollControls>
-            </Canvas>
-          </div>
+            <ScrollControls pages={3} damping={0.3}>
+              <ambientLight intensity={0} />
+              <spotLight
+                position={[0, 25, 0]}
+                angle={1.3}
+                penumbra={1}
+                intensity={2}
+                shadow-bias={-0.0001}
+              />
+              <TopView />
+              <Suspense fallback={null}>
+                <Cup />
+              </Suspense>
+              <BackGround />
+              <Environment preset="sunset" />
+              <PopingUp />
+            </ScrollControls>
+          </Canvas>
         </div>
-      </>
+      </div>
     );
   } else if (width < 400) {
     return (
-      <>
-        <div className="mobile-view">
-          <img className="mobile-img" src="/images/mobile_view.png" alt="" />
-        </div>
-      </>
+      <div className="mobile-view">
+        <img className="mobile-img" src="/images/mobile_view.png" alt="" />
+      </div>
     );
   }
+
+  return null;
 };
 
 export default HeroSection;
