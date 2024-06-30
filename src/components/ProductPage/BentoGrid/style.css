@@ -1,0 +1,19 @@
+.row-span-15{
+    grid-row: span 15 / span 15;
+}
+.row-span-14{
+    grid-row: span 14 / span 14;
+}
+.menu{
+    overflow: hidden;
+}
+.menu:hover .Image {
+    transform: scale(1.2);
+    
+  }
+
+
+.Image {
+  
+    transition: transform 0.5s ease-in-out;
+}

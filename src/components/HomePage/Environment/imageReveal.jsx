@@ -39,7 +39,7 @@ const ImageReveal = ({ images, altText, animationStyle = 'fade-in' }) => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         transition={transition}
-        className="relative"
+        className="relative h-[30rem] w-[20rem]"
       >
         <img
           ref={imageRef}

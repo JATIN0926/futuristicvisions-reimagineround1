@@ -64,14 +64,15 @@ const Environment = () => {
       <p className="mt-[-5rem] text-lg leading-relaxed font-sodo-sans font-normal  not-italic text-center z-[2]">
       We invest in renewable energy and make our stores energy-efficient. Starbucks also supports reforestation and water conservation projects, working towards a greener future for everyone.
       </p>
-      <ImageReveal className="z-[999] "
+      
+     {/* <ImageReveal className="z-[999]"
         imageUrl="/images/environment1.png"
         altText="Your image description"
         animationStyle="slide-up" 
-      />
+      /> */}
     </motion.div>
-    <div>
-      <ImageReveal className="z-[90]" images={images} altText="Environment Images" />
+    <div className="flex ">
+      <ImageReveal images={images} altText="Environment Images" />
     </div>
   </div>
 </div>
