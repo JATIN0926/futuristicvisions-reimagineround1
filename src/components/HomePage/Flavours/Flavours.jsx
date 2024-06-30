@@ -31,9 +31,9 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const totalSections = texts.length;
-      let heightFactor = 140;
+      let heightFactor = 135;
 
-      if (window.innerWidth >= 600) {
+      if (window.innerWidth >= 600 && window.innerWidth < 1400) {
         heightFactor = 135;
       } else if (window.innerWidth >= 400 && window.innerWidth < 600) {
         heightFactor = 138;
@@ -170,6 +170,8 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
               src={currentImage}
               alt="flav"
               fill
+              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
               className=" object-cover mbXSmall:object-contain origin-top aspect-auto"
             />
             <div

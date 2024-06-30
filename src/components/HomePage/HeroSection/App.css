@@ -12,6 +12,7 @@ body::-webkit-scrollbar{
  
 #justdoit::-webkit-scrollbar{
   display: none;
+  /* color: #f1fffa; */
 }
 
   /* trying regarding the navbar */

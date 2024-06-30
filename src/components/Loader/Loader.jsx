@@ -56,7 +56,7 @@ const Loader = ({ onLoaded }) => {
           {textStages.map((text, index) => (
             <motion.h1
               key={index}
-              className="absolute w-full text-left text-2xl font-medium font-sodo-sans"
+              className="absolute text-[#006240] font-bold w-full text-left text-2xl font-sodo-sans"
               initial={{ y: "100%", opacity: 1 }}
               animate={{
                 y: stage === index ? 0 : stage > index ? "-100%" : "100%",

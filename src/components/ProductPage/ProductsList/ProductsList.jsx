@@ -36,6 +36,7 @@ const ProductsList = () => {
 
   const handleCategoryClick = (tag) => {
     setSelectedTag(tag);
+    console.log(tag);
     setDropdownOpen(false);
   };
 
@@ -156,8 +157,8 @@ const ProductsList = () => {
             </div>
           </div>
           <div className="w-full products_list flex items-center  justify-center mbMedium:justify-start gap-0 tbPortrait:gap-3 flex-wrap">
-            {filteredProducts.map((product) => (
-              <Card key={product.id} product={product} />
+            {filteredProducts.map((product, index) => (
+              <Card key={index} product={product} />
             ))}
           </div>
         </div>

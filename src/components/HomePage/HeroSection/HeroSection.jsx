@@ -42,20 +42,18 @@ const HeroSection = () => {
         .from(textRef.current.scale, { x: 0, y: 0, z: 0, duration: 3 }, 9);
     }, []);
 
-    
-
     return (
       <mesh className=" font-sodo-sans text-4xl" rotation-x={-0.5 * Math.PI}>
         <Text
           ref={textRef}
           position={[0, 2, 0.3]}
           scale={2}
-          color={0xD4E9E2}
+          color={0xf1fffa}
           fontSize={1}
           font="/3D/SoDoSans-Black.ttf"
           // className=" font-sodo-sans text-4xl"
         >
-          STARBUCKS
+          Starbucks
         </Text>
       </mesh>
     );
@@ -100,7 +98,7 @@ const HeroSection = () => {
                 intensity={2}
                 shadow-bias={-0.0001}
               />
-              <OrbitControls enableZoom={false} />
+              {/* <OrbitControls enableZoom={false} /> */}
 
               <TopView />
               <Suspense fallback={null}>

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import AboutUs from "@/components/HomePage/AboutUs/AboutUs";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
@@ -19,6 +19,12 @@ export default function Home() {
   //   })();
   // }, []);
   const [loaded, setLoaded] = useState(false);
+  const navbarLogoRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative">
       {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
@@ -27,11 +33,11 @@ export default function Home() {
           loaded ? "opacity-100" : "opacity-0"
         }`} // I removed "gap-8" from the class and it fixed the nav bar.
       >
-        <Navbar />
+        <Navbar ref={navbarLogoRef} productPage={false} />
         <HeroSection />
         <Products />
         {/* <AboutUs /> */}
-        <NewFlavours />
+        {/* <NewFlavours /> */}
         <Flavours />
         {/* <Environment /> */}
         <Footer />
