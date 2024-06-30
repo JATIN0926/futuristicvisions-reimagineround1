@@ -78,3 +78,25 @@
     width:100%;
     object-fit: cover;
   }
+
+  @media screen and (width > 1350px ) and (width < 1435px) {
+    canvas{
+      margin: 0;
+      padding: 0;
+      height: 44rem;
+      background-color: #006240;
+      display: block;
+      z-index: 2284791;
+    }
+  }
+
+  @media screen and (width >= 1435px) {
+    canvas{
+      margin: 0;
+      padding: 0;
+      height: 49.5rem;
+      background-color: #006240;
+      display: block;
+      z-index: 2284791;
+    }
+  }
