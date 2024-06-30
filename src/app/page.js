@@ -37,7 +37,7 @@ export default function Home() {
         <HeroSection />
         <Products />
         {/* <AboutUs /> */}
-        {/* <NewFlavours /> */}
+        <NewFlavours />
         <Flavours />
         {/* <Environment /> */}
         <Footer />
