@@ -62,10 +62,33 @@ const Products = () => {
     productPage.addEventListener("mouseleave", handleMouseLeave);
     productPage.addEventListener("mousemove", handleMouseMove);
 
+    const handleScroll = () => {
+      if (!cursorVisible) return;
+      const rect = productPage.getBoundingClientRect();
+      if (rect.top > window.innerHeight || rect.bottom < 0) {
+        gsap.to(cursor, {
+          scale: 0,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power4.out",
+        });
+      } else {
+        gsap.to(cursor, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power4.out",
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       productPage.removeEventListener("mouseenter", handleMouseEnter);
       productPage.removeEventListener("mouseleave", handleMouseLeave);
       productPage.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [cursorVisible]);
 
@@ -91,7 +114,6 @@ const Products = () => {
   };
 
   const handleCursorClick = () => {
-    console.log("hey");
     if (cursorVisible) {
       gsap.to(cursorRef.current, {
         scale: 0.6,
