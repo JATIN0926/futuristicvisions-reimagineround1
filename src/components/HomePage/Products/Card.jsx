@@ -86,9 +86,25 @@ const Card = ({ product }) => {
   return (
     <div
       ref={cardRef}
-      className="group relative p-4 overflow-hidden m-2 h-[21rem] bg-white rounded-lg flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-1/2 laptop:basis-[22%] mbMedSmall:basis-3/5 mbXSmall:basis-3/4 mbMini:basis-[95%] tbLandscape:basis-4/12 card"
+      className={`group relative ${
+        product.outOfStock ? "grayscale" : ""
+      }  p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-md flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[70%] mbXSmall:basis-[45%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[23%] tbPortrait:basis-[22%] card`}
       onClick={handleCardClick}
     >
+      {product.outOfStock ? (
+        <div className="w-32 h-32 absolute left-2 -top-9 bg-[#EBFEF4] rounded p-1">
+          <Image src="/icons/outOfStock.svg" fill alt="outOfStock" />
+        </div>
+      ) : product.veg ? (
+        <div className="w-4 h-4 absolute left-3 top-3">
+          <Image src="/icons/veg.svg" fill alt="veg" />
+        </div>
+      ) : (
+        <div className="w-4 h-4 absolute left-3 top-3">
+          <Image src="/icons/nonVeg.svg" fill alt="non-veg" />
+        </div>
+      )}
+
       <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-[#F0DFB0] rounded-full transform -translate-x-[50%] translate-y-[70%] transition-transform duration-300 group-hover:translate-y-[60%]"></div>
       {count > 0 && (
         <div
@@ -120,17 +136,24 @@ const Card = ({ product }) => {
         </div>
       )}
       <div className="relative z-10 flex flex-col items-center h-full justify-between w-full">
-        <div className="h-[90%] mt-5 w-[100%] relative">
-          <Image
-            src={product.image}
-            fill
-            alt={product.name}
-            className="object-cover"
-          />
+        <div className="h-[90%] w-[90%] relative">
+          <div className="relative w-full h-full">
+            <Image
+              src={product.image}
+              fill
+              alt={product.name}
+              className=" object-contain rounded-lg aspect-square"
+              sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
+            />
+          </div>
         </div>
         <div className="w-full font-sodo-sans">
-          <h1 className="text-lg text-start font-semibold">{product.name}</h1>
-          <p className="font-medium">{product.price}</p>
+          <h1 className="text-sm mbXSmall:text-lg text-start font-semibold">
+            {product.name}
+          </h1>
+          <p className="font-medium text-[0.8rem] mbXSmall:text-base">
+            {product.price}
+          </p>
         </div>
       </div>
       {cursorVisible && count === 0 && (

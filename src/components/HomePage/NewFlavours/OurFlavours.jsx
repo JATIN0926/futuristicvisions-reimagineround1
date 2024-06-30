@@ -9,6 +9,7 @@ const OurFlavours = ({ children }) => {
         className="object-contain"
         src="/images/curve_text.png"
         alt=""
+        sizes="(min-width: 1200px) 208px, (min-width: 800px) 192px, 160px"
       />
       {children}
     </div>
