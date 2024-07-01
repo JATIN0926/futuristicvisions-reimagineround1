@@ -32,30 +32,49 @@ const NewFlavours = () => {
   ];
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [stopPosition, setStopPosition] = useState(0);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const radius = dimensions.width * 0.15; // Responsive radius
 
+  const updateStopPosition = () => {
+    let newPosition;
+    if (dimensions.width <= 480) {
+      newPosition = dimensions.height * 0.5; // For very small screens
+    } else if (dimensions.width <= 768) {
+      newPosition = dimensions.height * 0.6; // For small screens
+    } else if (dimensions.width <= 1024) {
+      newPosition = dimensions.height * 0.6; // For medium screens
+    } else if (dimensions.width <= 1100) {
+      newPosition = dimensions.height * 0.54; // For medium screens
+    } else if (dimensions.width <= 1300) {
+      newPosition = dimensions.height * 0.65; // For large screens
+    } else if (dimensions.width <= 1600) {
+      newPosition = dimensions.height * 0.6; // For large screens
+    } else {
+      newPosition = dimensions.height * 0.75; // For very large screens
+    }
+    setStopPosition(newPosition);
+  };
+
   useEffect(() => {
     const updateDimensions = () => {
       setDimensions({ width: window.innerWidth, height: window.innerHeight });
+      updateStopPosition();
     };
     window.addEventListener("resize", updateDimensions);
     updateDimensions();
     return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
+  }, [dimensions.width, dimensions.height]);
 
-  const y = useTransform(
-    scrollYProgress,
-    [0, 0.3],
-    [0, dimensions.height * 0.7] // Adjusted stop position
-  );
+  const y = useTransform(scrollYProgress, [0, 0.3], [0, stopPosition]);
+  console.log(stopPosition);
   const x = useTransform(
     scrollYProgress,
     [0, 0.3],
     [0, dimensions.width * 0.235]
   );
-  const rotate = useTransform(scrollYProgress, [0, 0.4], [-15, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 0.3], [-15, 0]);
   const scale = useMotionValue(1);
 
   useMotionValueEvent(scrollYProgress, "change", (value) => {
@@ -165,10 +184,10 @@ const NewFlavours = () => {
           </p>
         </div>
       </div>
-      <div className="h-[60vh] flex items-center justify-end overflow-hidden relative w-full">
+      <div className=" h-[60vh] flex items-center justify-end overflow-hidden relative w-full">
         <div
           id="scrollbox"
-          className="!m-0 relative top-[2rem] left-[6.125rem] h-auto w-full whitespace-nowrap inline-block z-[0]"
+          className="!m-0 relative top-[4rem] left-[6.125rem] h-auto w-full whitespace-nowrap inline-block z-[0]"
         >
           <div className="relative flex">
             <h1
@@ -199,7 +218,7 @@ const NewFlavours = () => {
         </div>
       </div>
 
-      <div className="h-[130vh] flex items-center justify-center w-full max-w-full relative">
+      <div className="min-h-[130vh] h-[130vh] flex items-center justify-center w-full max-w-full relative">
         <div
           ref={scope}
           className="relative w-full h-full flex items-center justify-center"
@@ -208,7 +227,7 @@ const NewFlavours = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: textVisible ? 1 : 0 }}
             transition={{ duration: 0.4, ease: "linear" }}
-            className="absolute top-[40%] flex flex-col items-center justify-center"
+            className="absolute top-[43%] flex flex-col items-center justify-center"
           >
             <OurFlavours>
               <h1 className="text-[#1E3932] font-extrabold text-xl text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

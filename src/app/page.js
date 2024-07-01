@@ -28,10 +28,11 @@ export default function Home() {
   return (
     <div className="relative">
       {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
+      {/* ` */}
       <div
         className={`flex flex-col  max-w-[100vw] transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0"
-        }`} // I removed "gap-8" from the class and it fixed the nav bar.
+        } `} // I removed "gap-8" from the class and it fixed the nav bar.
       >
         <Navbar ref={navbarLogoRef} productPage={false} />
         <HeroSection />

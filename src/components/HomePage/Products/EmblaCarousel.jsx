@@ -27,8 +27,8 @@ const EmblaCarousel = (props) => {
         <div
           className={`${styles.embla__container}  gap-[0rem] mbSmall:gap-[0.6rem]`}
         >
-          {products.map((product) => (
-            <Card key={product.id} product={product} />
+          {products.map((product, index) => (
+            <Card key={index} product={product} />
           ))}
         </div>
       </div>
