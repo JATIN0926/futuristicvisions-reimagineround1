@@ -11,6 +11,7 @@ const Products = () => {
   const [cursorVisible, setCursorVisible] = useState(true);
   const productPageRef = useRef(null);
   const cursorRef = useRef(null);
+  const testref = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -39,56 +40,35 @@ const Products = () => {
           duration: 0.5,
           ease: "power4.out",
         });
-        document.body.classList.remove("hide-cursor");
       }
+      document.body.classList.remove("hide-cursor");
     };
 
     const handleMouseMove = (e) => {
       if (!cursorVisible) return;
-
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
+      const rect = testref.current.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
 
       gsap.to(cursor, {
         x: mouseX,
         y: mouseY,
-        duration: 0.1,
+        duration: 0.3,
         ease: "power3.out",
       });
     };
 
     const productPage = productPageRef.current;
-    productPage.addEventListener("mouseenter", handleMouseEnter);
+    const testContainer = testref.current;
+    testContainer.addEventListener("mouseenter", handleMouseEnter);
+    testContainer.addEventListener("mouseleave", handleMouseLeave);
+    testContainer.addEventListener("mousemove", handleMouseMove);
     productPage.addEventListener("mouseleave", handleMouseLeave);
-    productPage.addEventListener("mousemove", handleMouseMove);
-
-    const handleScroll = () => {
-      if (!cursorVisible) return;
-      const rect = productPage.getBoundingClientRect();
-      if (rect.top > window.innerHeight || rect.bottom < 0) {
-        gsap.to(cursor, {
-          scale: 0,
-          opacity: 0,
-          duration: 0.5,
-          ease: "power4.out",
-        });
-      } else {
-        gsap.to(cursor, {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power4.out",
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      productPage.removeEventListener("mouseenter", handleMouseEnter);
-      productPage.removeEventListener("mouseleave", handleMouseLeave);
-      productPage.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
+      testContainer.removeEventListener("mouseenter", handleMouseEnter);
+      testContainer.removeEventListener("mouseleave", handleMouseLeave);
+      testContainer.removeEventListener("mousemove", handleMouseMove);
     };
   }, [cursorVisible]);
 
@@ -101,47 +81,48 @@ const Products = () => {
 
   const handleMouseLeaveCarousel = () => {
     setCursorVisible(true);
-    if (cursorRef.current) {
+    if (cursorRef.current && testref.current) {
       gsap.to(cursorRef.current, {
         scale: 1,
         opacity: 1,
         duration: 0.5,
         ease: "power4.out",
       });
+      document.body.classList.add("hide-cursor");
     }
-
-    document.body.classList.add("hide-cursor");
   };
 
   const handleCursorClick = () => {
     if (cursorVisible) {
       gsap.to(cursorRef.current, {
-        scale: 0.6,
+        scale: 0.7,
         duration: 0.2,
         ease: "power3.out",
         onComplete: () => {
           router.push("/product-page");
         },
       });
+      document.body.classList.remove("hide-cursor");
     }
   };
 
   return (
     <div
       ref={productPageRef}
-      className="w-screen max-w-full max-h-screen py-6 flex flex-col items-center justify-center gap-3 mbMedium:gap-6 tbMedium:gap-10"
+      className="w-screen max-w-full max-h-screen pt-12 relative flex flex-col items-center justify-center gap-3 mbMedium:gap-6 tbMedium:gap-10"
     >
-      <motion.div
-        ref={cursorRef}
-        whileTap={{ scale: 0.6 }}
-        className="explore-cursor text-[0.65rem]"
-      >
-        Explore more
-      </motion.div>
       <div
         className="w-full flex items-center justify-center"
         onClick={handleCursorClick}
+        ref={testref}
       >
+        <motion.div
+          ref={cursorRef}
+          whileTap={{ scale: 0.6 }}
+          className="explore-cursor text-[0.65rem]"
+        >
+          Explore more
+        </motion.div>
         <div className="flex flex-col gap-2 mbMedium:gap-4 tbLandscape:gap-6 items-center justify-center w-[85%] mbXSmall:w-[65%] mbSmall:w-[60%] mbMedium:w-[50%] laptop:w-[35%] tbPortrait:w-[30%]">
           <h2 className="text-[#006240] text-xs mbXSmall:text-sm mbSmall:text-lg mbMedium:text-xl tbMedium:text-2xl font-MaleoTrials-Bold tracking-[0.15rem] mbXSmall:tracking-[0.2rem] mbMedium:tracking-[0.3rem]">
             Order instantly favourite Coffee

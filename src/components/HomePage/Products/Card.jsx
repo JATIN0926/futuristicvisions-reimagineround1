@@ -92,7 +92,7 @@ const Card = ({ product }) => {
       onClick={handleCardClick}
     >
       {product.outOfStock ? (
-        <div className="w-32 h-32 absolute left-2 -top-9 bg-[#EBFEF4] rounded p-1">
+        <div className="w-32 h-10 absolute left-2 top-3 bg-[#EBFEF4] rounded-lg p-1">
           <Image src="/icons/outOfStock.svg" fill alt="outOfStock" />
         </div>
       ) : product.veg ? (

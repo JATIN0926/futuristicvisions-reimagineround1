@@ -1,6 +1,6 @@
 .custom-cursor  {
     position: absolute;
-    z-index: 1000;
+    z-index: 10;
     padding: 0.1rem;
     pointer-events: none;
     display: flex;
@@ -27,11 +27,10 @@
     cursor: none;
   }
   .explore-cursor {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    /* top: 0; */
     left: 0;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 11;
     padding: 0.16rem;
     pointer-events: none;
     display: flex;

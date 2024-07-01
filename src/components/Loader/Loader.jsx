@@ -50,7 +50,7 @@ const Loader = ({ onLoaded }) => {
               ? { x: navbarLogoPosition.x, y: navbarLogoPosition.y }
               : {}
           }
-          transition={{ duration: 2, ease: "easeInOut" }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
         />
         <div className="relative w-40 h-6 overflow-hidden">
           {textStages.map((text, index) => (
