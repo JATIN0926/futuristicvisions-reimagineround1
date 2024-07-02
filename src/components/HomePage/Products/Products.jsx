@@ -11,7 +11,7 @@ const Products = () => {
   const [cursorVisible, setCursorVisible] = useState(true);
   const productPageRef = useRef(null);
   const cursorRef = useRef(null);
-  const testref = useRef(null);
+  const textref = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Products = () => {
 
     const handleMouseMove = (e) => {
       if (!cursorVisible) return;
-      const rect = testref.current.getBoundingClientRect();
+      const rect = textref.current.getBoundingClientRect();
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
 
@@ -59,16 +59,16 @@ const Products = () => {
     };
 
     const productPage = productPageRef.current;
-    const testContainer = testref.current;
-    testContainer.addEventListener("mouseenter", handleMouseEnter);
-    testContainer.addEventListener("mouseleave", handleMouseLeave);
-    testContainer.addEventListener("mousemove", handleMouseMove);
+    const textContainer = textref.current;
+    textContainer.addEventListener("mouseenter", handleMouseEnter);
+    textContainer.addEventListener("mouseleave", handleMouseLeave);
+    textContainer.addEventListener("mousemove", handleMouseMove);
     productPage.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      testContainer.removeEventListener("mouseenter", handleMouseEnter);
-      testContainer.removeEventListener("mouseleave", handleMouseLeave);
-      testContainer.removeEventListener("mousemove", handleMouseMove);
+      textContainer.removeEventListener("mouseenter", handleMouseEnter);
+      textContainer.removeEventListener("mouseleave", handleMouseLeave);
+      textContainer.removeEventListener("mousemove", handleMouseMove);
     };
   }, [cursorVisible]);
 
@@ -81,7 +81,7 @@ const Products = () => {
 
   const handleMouseLeaveCarousel = () => {
     setCursorVisible(true);
-    if (cursorRef.current && testref.current) {
+    if (cursorRef.current && textref.current) {
       gsap.to(cursorRef.current, {
         scale: 1,
         opacity: 1,
@@ -114,12 +114,12 @@ const Products = () => {
       <div
         className="w-full flex items-center justify-center"
         onClick={handleCursorClick}
-        ref={testref}
+        ref={textref}
       >
         <motion.div
           ref={cursorRef}
           whileTap={{ scale: 0.6 }}
-          className="explore-cursor text-[0.65rem]"
+          className="explore-cursor text-[0.75rem]"
         >
           Explore more
         </motion.div>

@@ -8,7 +8,7 @@ const page = () => {
     <div className="flex flex-col gap-8 max-w-[100vw]">
       <Navbar productPage={true} />
       <Bento />
-      <ProductsList />
+      {/* <ProductsList /> */}
     </div>
   );
 };

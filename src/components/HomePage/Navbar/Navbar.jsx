@@ -19,16 +19,36 @@ const Navbar = forwardRef((props, ref) => {
             props.productPage ? "text-[#ECECEC]" : " "
           } hidden mbMedium:flex items-center justify-center gap-6 laptop:gap-8 mbMedium:text-xs laptop:text-sm tbPortrait:text-base tbLandscape:text-xl`}
         >
-          <Link href="/product-page" className="link">
+          <Link
+            href="/product-page"
+            className={`hover:${
+              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            } hover:font-semibold transition-all duration-500`}
+          >
             Menu
           </Link>
-          <Link href="" className="link">
+          <Link
+            href=""
+            className={`hover:${
+              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            } hover:font-semibold transition-all duration-500`}
+          >
             Gift & Rewards
           </Link>
-          <Link href="" className="link">
+          <Link
+            href=""
+            className={`hover:${
+              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            } hover:font-semibold transition-all duration-500`}
+          >
             Our Coffee
           </Link>
-          <Link href="" className="link">
+          <Link
+            href=""
+            className={`hover:${
+              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            } hover:font-semibold transition-all duration-500`}
+          >
             Store
           </Link>
         </nav>

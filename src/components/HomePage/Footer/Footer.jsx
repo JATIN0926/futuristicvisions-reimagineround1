@@ -16,10 +16,12 @@ const Footer = () => {
                 sizes="(min-width: 600px) 64px, (min-width: 400px) 53px, 40px"
               />
             </div>
-            <h1 className="uppercase  font-bold cursor-pointer">
+            <h1 className="uppercase  font-bold cursor-pointer hover:text-[#F0DFB0] transition-all">
               Starbucks coffee
             </h1>
-            <h1 className="uppercase  font-bold cursor-pointer">Contact Us</h1>
+            <h1 className="uppercase  font-bold cursor-pointer hover:text-[#F0DFB0] transition-all">
+              Contact Us
+            </h1>
             <div className="flex items-center justify-start gap-3">
               <Image
                 src="/icons/youtube.png"

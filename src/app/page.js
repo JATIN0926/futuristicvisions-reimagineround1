@@ -10,6 +10,7 @@ import NewFlavours from "@/components/HomePage/NewFlavours/NewFlavours";
 import Products from "@/components/HomePage/Products/Products";
 import Loader from "@/components/Loader/Loader";
 import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
+import Pin from "@/components/Pin/Pin";
 
 export default function Home() {
   // useEffect(() => {
@@ -21,26 +22,30 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const navbarLogoRef = useRef(null);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
     <div className="relative">
-      {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
-      <div
-        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500   ${
+      {/* {!loaded && <Loader onLoaded={() => setLoaded(true)} />} */}
+      {/* ${
           loaded ? "opacity-100" : "opacity-0"
-        } `}
+        } */}
+      <div
+        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500   `}
       >
         <Navbar ref={navbarLogoRef} productPage={false} />
         <HeroSection />
-        <Products />
-        {/* <AboutUs /> */}
-        <NewFlavours />
-        <Flavours />
-        {/* <Environment /> */}
-        <Footer />
+        <div className="flex flex-col  max-w-[100vw] gap-6">
+          <Products />
+          {/* <AboutUs /> */}
+          {/* <Pin />  */}
+          <NewFlavours />
+          <Flavours />
+          <Environment />
+          <Footer />
+        </div>
       </div>
     </div>
   );
