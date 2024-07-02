@@ -1,21 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap-trial/dist/ScrollSmoother";
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Environment() {
   let component = useRef();
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      // ScrollSmoother.create({
-      //   smooth: 1,
-      //   effects: true,
-      //   smoothTouch: 0.1,
-      // });
       // Pinning the text section
       ScrollTrigger.create({
         trigger: ".page2",

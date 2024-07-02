@@ -17,6 +17,7 @@ const Bento = () => {
                 width={20}
                 height={20}
                 alt=""
+                sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                 className="w-[0.8rem] h-[0.8rem] mbSmall:w-[1.2rem] mbSmall:h-[1.2rem]"
               />
               <h1 className=" text-[0.6rem] mbXSmall:text-xs mbSmall:text-sm laptop:text-lg font-light mbSmall:font-medium">
@@ -29,6 +30,7 @@ const Bento = () => {
                 width={20}
                 height={20}
                 alt=""
+                sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                 className="w-[0.8rem] h-[0.8rem] mbSmall:w-[1.2rem] mbSmall:h-[1.2rem]"
               />
               <h1 className=" text-[0.6rem] mbXSmall:text-xs mbSmall:text-sm laptop:text-lg font-light mbSmall:font-medium">
@@ -51,6 +53,7 @@ const Bento = () => {
                   src="/images/food.png"
                   width={280}
                   height={150}
+                  sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                   className="Image  origin-bottom-right absolute z-[2] right-[-2rem] top-[6.2vh]"
                   alt=""
                 />
@@ -63,12 +66,16 @@ const Bento = () => {
                   width={150}
                   height={150}
                   className="Image  absolute left-[-3rem] top-[10vh]"
+                  alt=""
+                  sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                 />
                 <Image
                   src="/images/tea2.png"
                   width={150}
                   height={150}
                   className="Image absolute right-[-3rem] top-[13vh]"
+                  alt=""
+                  sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                 />
               </div>
               <div className="menu row-span-14 h-[26.5vh] relative col-span-3 overflow-hidden bg-white">
@@ -78,6 +85,8 @@ const Bento = () => {
                   width={200}
                   height={200}
                   className="Image absolute right-[-4.5rem] top-[15vh]"
+                  alt=""
+                  sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                 />
               </div>
               <div className="menu row-span-14 h-[26.5vh]  col-span-6 relative overflow-hidden bg-white">
@@ -89,6 +98,8 @@ const Bento = () => {
                   width={220}
                   height={220}
                   className="Image absolute right-[-3rem] top-[12vh]"
+                  alt=""
+                  sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
                 />
               </div>
             </div>
@@ -109,6 +120,7 @@ const Bento = () => {
                     width={50}
                     height={50}
                     className="Image "
+                    alt=""
                   />
                   <Image
                     src="/images/Coffee_02.png"
