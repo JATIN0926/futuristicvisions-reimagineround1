@@ -28,19 +28,17 @@ export default function Home() {
 
   return (
     <div className="relative">
-      {/* {!loaded && <Loader onLoaded={() => setLoaded(true)} />} */}
-      {/* ${
-          loaded ? "opacity-100" : "opacity-0"
-        } */}
+      {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
       <div
-        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500   `}
+        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500   ${
+          loaded ? "opacity-100" : "opacity-0"
+        }  `}
       >
         <Navbar ref={navbarLogoRef} productPage={false} />
-        <HeroSection />
         <div className="flex flex-col  max-w-[100vw] gap-6">
+          <HeroSection />
           <Products />
-          {/* <AboutUs /> */}
-          {/* <Pin />  */}
+          <AboutUs />
           <NewFlavours />
           <Flavours />
           <Environment />

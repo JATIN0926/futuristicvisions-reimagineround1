@@ -14,7 +14,7 @@ const Loader = ({ onLoaded }) => {
       setTimeout(() => setStage(2), 2000), // Change text to "Like Home"
       setTimeout(() => setStage(3), 3000), // Hide text
       setTimeout(() => setStage(4), 4000), // Move logo to navbar position
-      setTimeout(() => onLoaded(), 6000), // Show homepage content
+      setTimeout(() => onLoaded(), 5000), // Show homepage content
     ];
 
     return () => timers.forEach((timer) => clearTimeout(timer));

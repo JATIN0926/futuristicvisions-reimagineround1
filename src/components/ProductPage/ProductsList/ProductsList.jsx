@@ -98,6 +98,7 @@ const ProductsList = () => {
                     height={20}
                     alt=""
                     className="w-[0.8rem] h-[0.8rem] mbSmall:w-[1.2rem] mbSmall:h-[1.2rem]"
+                    sizes="(max-width: 768px) 16px, 20px"
                   />
                   <h1 className=" text-[0.6rem] mbXSmall:text-xs mbSmall:text-sm laptop:text-lg font-light mbSmall:font-medium">
                     Dine In
@@ -110,6 +111,7 @@ const ProductsList = () => {
                     height={20}
                     alt=""
                     className="w-[0.8rem] h-[0.8rem] mbSmall:w-[1.2rem] mbSmall:h-[1.2rem]"
+                    sizes="(max-width: 768px) 16px, 20px"
                   />
                   <h1 className=" text-[0.6rem] mbXSmall:text-xs mbSmall:text-sm laptop:text-lg font-light mbSmall:font-medium">
                     Take Away
