@@ -169,8 +169,9 @@ const NewFlavours = () => {
       className="max-h-[250vh] w-screen max-w-full p-6 px-10 flex flex-col items-center justify-start"
     >
       <div className="flex items-center w-full h-screen justify-center gap-8 laptop:gap-2 tbPortrait:gap-0">
+        {/* h-[70vh] w-[50vw]  */}
         <motion.div
-          className=" relative w-[40%] h-[70%] mbSmall:w-[45%] mbSmall:h-[90%] mbMedium:w-[40%] mbMedium:h-[85%] laptop:w-1/2  laptop:h-full main-cup"
+          className=" relative w-[40%] h-[70%] mbSmall:w-[45%] mbSmall:h-[90%] mbMedium:w-[40%] mbMedium:h-[85%] laptop:w-1/2  laptop:h-full  main-cup"
           style={{
             y,
             x,
@@ -185,7 +186,7 @@ const NewFlavours = () => {
             src="/images/newflav1.png"
             alt="flav"
             fill
-            className="object-cover"
+            className="object-contain"
             // priority
             sizes="calc(50vw - 40px)"
           />
@@ -268,7 +269,7 @@ const NewFlavours = () => {
                 src={img}
                 alt={`flav-${i}`}
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="calc(14.48vw - 11px)"
               />
             </motion.div>

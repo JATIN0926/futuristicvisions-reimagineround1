@@ -53,18 +53,33 @@ const Navbar = forwardRef((props, ref) => {
           </Link>
         </nav>
         {/* Mobile view */}
-        <button
-          className="block mbMedium:hidden"
-          onClick={() => setisNavOpen(!isNavOpen)}
-        >
-          <Image
-            src="/icons/List.svg"
-            alt="Starbuck"
-            width={50}
-            height={50}
-            className="w-[1.4rem]  mbXSmall:w-[1.5rem]"
-          />
-        </button>
+        {props.productPage ? (
+          <button
+            className="block mbMedium:hidden"
+            onClick={() => setisNavOpen(!isNavOpen)}
+          >
+            <Image
+              src="/icons/ListWhite.svg"
+              alt="Starbuck"
+              width={50}
+              height={50}
+              className="w-[1.4rem]  mbXSmall:w-[1.5rem]"
+            />
+          </button>
+        ) : (
+          <button
+            className="block mbMedium:hidden"
+            onClick={() => setisNavOpen(!isNavOpen)}
+          >
+            <Image
+              src="/icons/List.svg"
+              alt="Starbuck"
+              width={50}
+              height={50}
+              className="w-[1.4rem]  mbXSmall:w-[1.5rem]"
+            />
+          </button>
+        )}
         <div
           className={`absolute top-[90%] left-0 right-0 mt-2 shadow-lg ${
             props.productPage ? "bg-[#006240]" : "bg-[#F1F0EA]"
@@ -97,15 +112,17 @@ const Navbar = forwardRef((props, ref) => {
             </nav>
           </div>
         </div>
-        <Image
-          ref={ref}
-          id="navbar-logo"
-          src="/icons/starbucks_logo.png"
-          alt="Starbuck"
-          width={50}
-          height={50}
-          className="w-[2rem] h-[2rem] laptop:w-[2.5rem] laptop:h-[2.5rem] tbPortrait:h-[3rem] tbPortrait:w-[3rem] tbLandscape:w-[4rem] tbLandscape:h-[4rem]"
-        />
+        <Link href="/">
+          <Image
+            ref={ref}
+            id="navbar-logo"
+            src="/icons/starbucks_logo.png"
+            alt="Starbuck"
+            width={50}
+            height={50}
+            className=" cursor-pointer w-[2rem] h-[2rem] laptop:w-[2.5rem] laptop:h-[2.5rem] tbPortrait:h-[3rem] tbPortrait:w-[3rem] tbLandscape:w-[4rem] tbLandscape:h-[4rem]"
+          />
+        </Link>
         <div className="hidden mbMedium:flex items-center justify-center gap-4">
           <div>
             <input

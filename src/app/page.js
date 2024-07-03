@@ -10,7 +10,6 @@ import NewFlavours from "@/components/HomePage/NewFlavours/NewFlavours";
 import Products from "@/components/HomePage/Products/Products";
 import Loader from "@/components/Loader/Loader";
 import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
-import Pin from "@/components/Pin/Pin";
 
 export default function Home() {
   // useEffect(() => {
