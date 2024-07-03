@@ -40,9 +40,9 @@ const NewFlavours = () => {
   const updateStopPosition = () => {
     let newPosition;
     if (dimensions.width <= 280) {
-      newPosition = dimensions.height * 0.5; // For very small screens
+      newPosition = dimensions.height * 0.4; // For very small screens
     } else if (dimensions.width <= 400) {
-      newPosition = dimensions.height * 0.55; // For small screens
+      newPosition = dimensions.height * 0.4; // For small screens
     } else if (dimensions.width <= 600) {
       newPosition = dimensions.height * 0.55; // For small screens
     } else if (dimensions.width <= 800) {
@@ -63,7 +63,7 @@ const NewFlavours = () => {
     let newRadius;
 
     if (width <= 400) {
-      newRadius = width * 0.29; // For very small screens
+      newRadius = width * 0.27; // For very small screens
     } else if (width <= 600) {
       newRadius = width * 0.27; // For small screens
     } else if (width <= 800) {
@@ -170,10 +170,10 @@ const NewFlavours = () => {
       ref={container}
       className="max-h-[250vh] w-screen max-w-full p-6 px-10 flex flex-col items-center justify-start"
     >
-      <div className="flex flex-col-reverse mbXSmall:flex-row items-center w-full h-screen mbXSmall:h-[60vh] mbSmall:h-screen justify-center gap-0 mbXSmall:gap-10 mbSmall:gap-6 laptop:gap-2 tbPortrait:gap-0">
+      <div className="flex flex-col-reverse mbXSmall:flex-row items-center w-full h-[80vh] mbXSmall:h-[60vh] mbSmall:h-screen justify-center gap-0 mbXSmall:gap-10 mbSmall:gap-6 laptop:gap-2 tbPortrait:gap-0">
         {/* h-[70vh] w-[50vw]  */}
         <motion.div
-          className=" relative w-[90%] h-[60%] mbXSmall:w-[45%] mbXSmall:h-[80%] mbSmall:w-[40%] mbSmall:h-[60%] mbMedium:w-[50%] mbMedium:h-[95%] laptop:w-1/2  laptop:h-full  main-cup"
+          className=" relative w-[75%] h-[45%] mbXSmall:w-[45%] mbXSmall:h-[80%] mbSmall:w-[40%] mbSmall:h-[60%] mbMedium:w-[50%] mbMedium:h-[95%] laptop:w-1/2  laptop:h-full  main-cup"
           style={{
             y,
             x,
@@ -207,7 +207,7 @@ const NewFlavours = () => {
           </p>
         </div>
       </div>
-      <div className=" h-[50vh] mbSmall:h-[60vh] flex items-center justify-end overflow-hidden relative w-screen max-w-full">
+      <div className=" h-[30vh] mbXSmall:h-[50vh] mbSmall:h-[60vh] flex items-center justify-end overflow-hidden relative w-screen max-w-full">
         <div
           id="scrollbox"
           className="!m-0 relative top-[0rem] mbSmall:top-[4rem]  left-[6.125rem] h-auto w-full whitespace-nowrap inline-block z-[0]"
