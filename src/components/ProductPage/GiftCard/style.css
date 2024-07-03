@@ -1,0 +1,71 @@
+/* *{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+   */
+
+   body{
+    background-color: #F1F0EA;
+   }
+  
+  .gift-card-sec{
+    background:url('/images/Frame\ 46.svg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 60vh;
+    width: 85%;
+    color: white;
+    overflow: hidden ;
+  }
+  
+  /* trying somethings again */
+
+  .sec-text{
+    width: 40%;
+  }
+
+  .sec-images{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: start; */
+    width: 60%;
+    /* height: 100%; */
+  }
+
+  .img-center{
+    height: 90vh;
+    width: 70vw;
+    position: relative;
+    top: -4vh;
+    right: 20vw;
+  }
+
+  .img-left{
+    /* height: 85%; */
+    height: 70vh;
+    position: relative;
+    top: 16vh;
+    /* left: 5vw; */
+    /* z-index: 1; */
+  }
+
+  .img-right{
+    height: 70vh;
+    /* height: 85%; */
+    position: relative;
+    top: 16vh;
+    right: 45vw;
+  }
+
+  .image{
+    transition: all 0.3s ease-in;
+    /* opacity: 0; */
+  }
+
+  .image:hover{
+    scale: 1.1;
+    
+  }
