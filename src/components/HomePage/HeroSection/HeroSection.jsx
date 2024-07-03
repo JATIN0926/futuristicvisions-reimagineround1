@@ -134,7 +134,7 @@ const HeroSection = () => {
 
   if (width >= 400) {
     return (
-      <div className="hero">
+      <div className="hero mt-[4.5rem]">
         <div
           style={{ zIndex: 19 }}
           id="canvas-container"

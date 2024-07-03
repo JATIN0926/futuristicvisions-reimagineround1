@@ -194,7 +194,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="page h-screen w-full z-50">
+      <div className="page h-screen w-full z-40">
         <div className="image-section h-screen flex flex-col items-center justify-around w-full">
           <div className="w-full h-[40%] flex item-center justify-center">
             <Image

@@ -135,7 +135,7 @@ const Products = () => {
   return (
     <div
       ref={productPageRef}
-      className="w-screen max-w-full max-h-screen pt-12 relative flex flex-col items-center justify-center gap-3 mbMedium:gap-6 tbMedium:gap-10"
+      className="w-screen max-w-full max-h-screen mt-24 relative flex flex-col items-center justify-center gap-3 mbMedium:gap-6 tbMedium:gap-10"
     >
       {isSmallScreen && (
         <motion.button

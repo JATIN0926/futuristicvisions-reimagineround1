@@ -32,6 +32,7 @@ const ProductsList = () => {
     "New flavours",
     "Other Beverages",
     "Coffee at home",
+    "Merchandise",
   ];
 
   const handleCategoryClick = (tag) => {

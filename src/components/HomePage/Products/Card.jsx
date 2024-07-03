@@ -92,7 +92,7 @@ const Card = ({ product }) => {
       onClick={handleCardClick}
     >
       {product.outOfStock ? (
-        <div className="w-32 h-10 absolute left-2 top-3 bg-[#EBFEF4] rounded-lg p-1">
+        <div className="w-32 h-8 absolute left-2 top-3 bg-[#EBFEF4]  rounded-lg">
           <Image src="/icons/outOfStock.svg" fill alt="outOfStock" />
         </div>
       ) : product.veg ? (
@@ -156,7 +156,7 @@ const Card = ({ product }) => {
           </p>
         </div>
       </div>
-      {cursorVisible && count === 0 && (
+      {cursorVisible && count === 0 && !product.outOfStock && (
         <motion.div
           ref={cursorRef}
           whileTap={{ scale: 0.6 }}

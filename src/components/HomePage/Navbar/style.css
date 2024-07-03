@@ -7,7 +7,18 @@
     justify-content: center;
   }
   
-
+  .outer-nav {
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-visible {
+    transform: translateY(0);
+  }
+  
+  .nav-hidden {
+    transform: translateY(-100%);
+  }
+  
   
   
   .navbar{

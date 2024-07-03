@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import AboutUs from "@/components/HomePage/AboutUs/AboutUs";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
 import Flavours from "@/components/HomePage/Flavours/Flavours";
-import Footer from "@/components/HomePage/Footer/Footer";
 import Environment from "@/components/HomePage/Environment/Environment";
 import NewFlavours from "@/components/HomePage/NewFlavours/NewFlavours";
 import Products from "@/components/HomePage/Products/Products";
@@ -29,20 +28,17 @@ export default function Home() {
     <div className="relative">
       {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
       <div
-        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500   ${
+        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500 gap-8   ${
           loaded ? "opacity-100" : "opacity-0"
         }  `}
       >
         <Navbar ref={navbarLogoRef} productPage={false} />
-        <div className="flex flex-col  max-w-[100vw] gap-6">
-          <HeroSection />
-          <Products />
-          <AboutUs />
-          <NewFlavours />
-          <Flavours />
-          <Environment />
-          <Footer />
-        </div>
+        <HeroSection />
+        <Products />
+        <AboutUs />
+        <NewFlavours />
+        <Flavours />
+        <Environment />
       </div>
     </div>
   );

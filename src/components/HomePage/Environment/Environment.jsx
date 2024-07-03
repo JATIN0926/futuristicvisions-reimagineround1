@@ -30,7 +30,7 @@ export default function Environment() {
           id: "blur-fade-effect",
           onUpdate: (self) => {
             const progress = self.progress;
-            const adjustedProgress = Math.max(progress - 0.3, 0) / 0.7; // Adjust progress to start at 0.3
+            const adjustedProgress = Math.max(progress - 0.45, 0) / 0.7; // Adjust progress to start at 0.3
             const blurAmount =
               adjustedProgress <= 0.6 ? adjustedProgress * 10 : 6; // 0 to 6 blur amount for 60% of scroll
             const opacity =
@@ -113,8 +113,8 @@ export default function Environment() {
           </div>
         </div>
       </div>
-      <div className="page h-screen w-full z-50">
-        <div className="image-section h-screen flex flex-col items-center justify-around w-full">
+      <div className="page h-screen w-full z-40">
+        <div className="image-section h-screen  flex flex-col items-center justify-around w-full">
           <div className="w-full h-[40%] flex item-center justify-center">
             <Image
               src="/images/environment1.png"
