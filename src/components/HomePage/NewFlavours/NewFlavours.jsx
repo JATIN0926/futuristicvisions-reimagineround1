@@ -42,13 +42,13 @@ const NewFlavours = () => {
     if (dimensions.width <= 280) {
       newPosition = dimensions.height * 0.5; // For very small screens
     } else if (dimensions.width <= 400) {
-      newPosition = dimensions.height * 0.6; // For small screens
-    } else if (dimensions.width <= 550) {
-      newPosition = dimensions.height * 0.6; // For small screens
-    } else if (dimensions.width <= 700) {
-      newPosition = dimensions.height * 0.62; // For medium screens
-    } else if (dimensions.width <= 1000) {
-      newPosition = dimensions.height * 0.585; // For medium screens
+      newPosition = dimensions.height * 0.55; // For small screens
+    } else if (dimensions.width <= 600) {
+      newPosition = dimensions.height * 0.55; // For small screens
+    } else if (dimensions.width <= 800) {
+      newPosition = dimensions.height * 0.85; // For medium screens
+    } else if (dimensions.width <= 1100) {
+      newPosition = dimensions.height * 0.8; // For medium screens
     } else if (dimensions.width <= 1300) {
       newPosition = dimensions.height * 0.65; // For large screens
     } else if (dimensions.width <= 1600) {
@@ -59,21 +59,23 @@ const NewFlavours = () => {
     setStopPosition(newPosition);
   };
 
-  const updateRadius = (width, height) => {
+  const updateRadius = (width) => {
     let newRadius;
-    if (height <= 400) {
-      newRadius = width * 0.2; // For very small screens
-    } else if (height <= 600) {
-      newRadius = width * 0.18; // For small screens
-    } else if (height <= 800) {
-      newRadius = width * 0.15; // For medium screens
-    } else if (height <= 1000) {
+
+    if (width <= 400) {
+      newRadius = width * 0.29; // For very small screens
+    } else if (width <= 600) {
+      newRadius = width * 0.27; // For small screens
+    } else if (width <= 800) {
+      newRadius = width * 0.23; // For medium screens
+    } else if (width <= 1000) {
       newRadius = width * 0.19; // For large screens
-    } else if (height <= 1200) {
-      newRadius = width * 0.22; // For large screens
+    } else if (width <= 1200) {
+      newRadius = width * 0.17; // For larger screens
     } else {
-      newRadius = width * 0.25; // For very large screens
+      newRadius = width * 0.16; // For very large screens
     }
+
     console.log("New Radius:", newRadius); // Log new calculated radius
     setRadius(newRadius);
   };
@@ -93,7 +95,7 @@ const NewFlavours = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 0.3],
-    [0, dimensions.width * 0.235]
+    [0, dimensions.width > 400 ? dimensions.width * 0.235 : 0]
   );
   const rotate = useTransform(scrollYProgress, [0, 0.3], [-15, 0]);
   const scale = useMotionValue(1);
@@ -168,10 +170,10 @@ const NewFlavours = () => {
       ref={container}
       className="max-h-[250vh] w-screen max-w-full p-6 px-10 flex flex-col items-center justify-start"
     >
-      <div className="flex items-center w-full h-screen justify-center gap-8 laptop:gap-2 tbPortrait:gap-0">
+      <div className="flex flex-col-reverse mbXSmall:flex-row items-center w-full h-screen mbXSmall:h-[60vh] mbSmall:h-screen justify-center gap-0 mbXSmall:gap-10 mbSmall:gap-6 laptop:gap-2 tbPortrait:gap-0">
         {/* h-[70vh] w-[50vw]  */}
         <motion.div
-          className=" relative w-[40%] h-[70%] mbSmall:w-[45%] mbSmall:h-[90%] mbMedium:w-[40%] mbMedium:h-[85%] laptop:w-1/2  laptop:h-full  main-cup"
+          className=" relative w-[90%] h-[60%] mbXSmall:w-[45%] mbXSmall:h-[80%] mbSmall:w-[40%] mbSmall:h-[60%] mbMedium:w-[50%] mbMedium:h-[95%] laptop:w-1/2  laptop:h-full  main-cup"
           style={{
             y,
             x,
@@ -186,29 +188,29 @@ const NewFlavours = () => {
             src="/images/newflav1.png"
             alt="flav"
             fill
-            className="object-contain"
+            className="object-cover mbMedium:object-contain"
             // priority
             sizes="calc(50vw - 40px)"
           />
         </motion.div>
-        <div className="flex flex-col items-start justify-center gap-2 mbSmall:gap-4 mbMedium:gap-6 w-[60%] mbSmall:w-[50%]">
-          <p className=" text-[0.7rem] mbSmall:text-base mbMedium:text-lg laptop:text-xl font-semibold tracking-[0.15rem] mbSmall:tracking-[0.25rem] mbMedium:tracking-[0.3rem] font-MaleoTrials-Bold text-[#006240]">
+        <div className="flex flex-col items-center mbXSmall:items-start justify-center gap-2 mbSmall:gap-4 mbMedium:gap-6 w-[90%] mbXSmall:w-[60%] mbSmall:w-[50%]">
+          <p className=" text-[0.65rem] mbXSmall:text-[0.7rem] mbSmall:text-base mbMedium:text-lg laptop:text-xl font-semibold tracking-[0.15rem] mbSmall:tracking-[0.25rem] mbMedium:tracking-[0.3rem] font-MaleoTrials-Bold text-[#006240]">
             Never Compromise Your Taste
           </p>
-          <h1 className="font-lander-grande text-xl mbSmall:text-3xl mbMedium:text-4xl laptop:text-5xl leading-snug text-[#1E3932]">
+          <h1 className="font-lander-grande text-center mbXSmall:text-start text-lg mbXSmall:text-xl mbSmall:text-3xl mbMedium:text-4xl laptop:text-5xl leading-snug text-[#1E3932]">
             Choose or Tweak Your Flavors
           </h1>
-          <p className=" text-[0.65rem] mbSmall:text-sm mbMedium:text-base laptop:text-lg leading-relaxed font-sodo-sans w-[95%] font-normal not-italic tracking-wide text-[#006240]">
+          <p className=" text-[0.55rem] mbXSmall:text-[0.65rem] text-center mbXSmall:text-start mbSmall:text-sm mbMedium:text-base laptop:text-lg leading-relaxed font-sodo-sans w-[95%] font-normal not-italic tracking-wide text-[#006240]">
             At Starbucks, you can choose from a wide variety of flavors, or
             tweak your drink to match your personal taste. Enjoy a customized
             coffee experience made just for you.
           </p>
         </div>
       </div>
-      <div className="h-[60vh] flex items-center justify-end overflow-hidden relative w-screen max-w-full">
+      <div className=" h-[50vh] mbSmall:h-[60vh] flex items-center justify-end overflow-hidden relative w-screen max-w-full">
         <div
           id="scrollbox"
-          className="!m-0 relative top-[4rem] left-[6.125rem] h-auto w-full whitespace-nowrap inline-block z-[0]"
+          className="!m-0 relative top-[0rem] mbSmall:top-[4rem]  left-[6.125rem] h-auto w-full whitespace-nowrap inline-block z-[0]"
         >
           <div className="relative flex">
             <h1
@@ -239,7 +241,7 @@ const NewFlavours = () => {
         </div>
       </div>
 
-      <div className="min-h-[130vh] h-[130vh] flex items-center justify-center w-screen max-w-full relative">
+      <div className="max-h-[130vh] h-[50vh] mbXSmall:h-[65vh] mbSmall:h-screen tbPortrait:h-[130vh] flex items-center justify-center w-screen max-w-full relative">
         <div
           ref={scope}
           className="relative w-full h-full flex items-center justify-center"
@@ -251,7 +253,7 @@ const NewFlavours = () => {
             className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
           >
             <OurFlavours>
-              <h1 className="text-[#1E3932] font-extrabold text-xl text-center">
+              <h1 className="text-[#1E3932] font-extrabold text-xs mbXSmall:text-base mbSmall:text-lg tbPortrait:text-xl text-center">
                 Explore new Flavours
               </h1>
             </OurFlavours>
@@ -260,7 +262,7 @@ const NewFlavours = () => {
           {additionalCups.map((img, i) => (
             <motion.div
               key={i}
-              className={` w-[20%] h-[19%] mbMedium:w-[16%] mbMedium:h-[19%] laptop:w-[14.5%] laptop:h-[23%] absolute cup-${i}`}
+              className={` w-[30%] h-[40%] mbXSmall:w-[27%] mbXSmall:h-[35%] mbSmall:w-[23%] mbSmall:h-[32%] mbMedium:w-[20%] mbMedium:h-[30%] laptop:w-[16%] laptop:h-[26%] tbPortrait:w-[14.5%] tbPortrait:h-[23%] absolute cup-${i}`}
               style={{
                 opacity: 0,
               }}

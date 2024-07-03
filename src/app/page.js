@@ -21,9 +21,9 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const navbarLogoRef = useRef(null);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="relative">
