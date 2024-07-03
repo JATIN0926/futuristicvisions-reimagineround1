@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import "./style.css";
-import BentoBox from "./BentoBox";
+
 const Bento = () => {
   return (
     <div className="w-screen max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
@@ -168,7 +168,7 @@ const Bento = () => {
                   src="/images/frappuccino.png"
                   width={250}
                   height={250}
-                  className="Image absolute right-[-3rem] top-[17vh]"
+                  className="Image absolute right-[-3rem] top-[16vh]"
                   alt=""
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
@@ -192,7 +192,7 @@ const Bento = () => {
                   src="/images/starbucksCup.png"
                   width={250}
                   height={250}
-                  className="Image absolute right-[-4rem] top-[8vh]"
+                  className="Image absolute right-[-4rem] top-[3.5rem]"
                   alt=""
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
@@ -201,37 +201,37 @@ const Bento = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-0 mt-[1rem] laptop:hidden">
+        <div className="container px-0 mt-[1rem] laptop:hidden">
           <div className="grid grid-cols-1 gap-2 ">
             {/* Row 1: Split into 80% and 20% */}
-            <div className="flex relative gap-2">
-              <div className="  h-[18vh] w-[80vw] relative z-10 ">
+            <div className="flex relative w-[85vw] gap-2">
+              <div className="  h-[20vh] w-[85vw] relative z-10 ">
                 <Image
                   src="/images/tasty.png"
                   width={280}
                   height={140}
-                  className="Image h-[18vh] w-[80vw] object-cover absolute "
+                  className="Image h-[20vh] w-[80vw] object-cover absolute "
                   alt=""
                   sizes="(min-width: 420px) 71.61vw, (min-width: 380px) calc(215vw - 580px), calc(48.33vw + 63px)"
                 />
               </div>
-              <div className="w-[15vw]  relative bg-[#DD92C0] h-[18vh] flex items-end justify-start  overflow-hidden">
-                <p className="flex self-start  pl-[1rem] pt-[1rem] text-white rotate-90 writing-mode:vertical-lr  font-bold ">
+              <div className="w-[15vw]  relative bg-[#DD92C0] h-[20vh] flex items-end justify-start  overflow-hidden">
+                <p className="flex self-start  pl-[1rem] pt-[1rem] text-white rotate-90 writing-mode:vertical-lr font-sodo-sans font-regular text-sm mbXSmall:text-base mbXSmall:text-nowrap mbXSmall:pt-[8vh] ">
                   {" "}
                   Most Popular
                 </p>
                 <Image
                   src="/images/Coffee_01.png"
-                  width={50}
-                  height={50}
+                  width={40}
+                  height={40}
                   className="Image absolute left-[-3vw] bottom-[-3vh] rotate-45 "
                   alt=""
                   sizes="(min-width: 400px) 50px, calc(7.5vw + 17px)"
                 />
                 <Image
                   src="/images/Coffee_02.png"
-                  width={50}
-                  height={50}
+                  width={40}
+                  height={40}
                   className="Image absolute right-[-3vw] bottom-[2vh] -rotate-45 "
                   alt=""
                   sizes="(min-width: 400px) 50px, calc(7.5vw + 17px)"
@@ -240,8 +240,8 @@ const Bento = () => {
             </div>
 
             {/* Row 2: Split into 2 equal columns */}
-            <div className="grid grid-cols-2 gap-2 relative">
-              <div className="relative bg-white overflow-hidden h-[22vh]">
+            <div className="grid grid-cols-2 gap-2 relative w-[85vw] font-sodo-sans ">
+              <div className="relative bg-white overflow-hidden h-[25vh]">
                 <p className=" p-[0.5rem] text-black  font-bold">Coffee</p>
                 <Image
                   src="/images/coffeeCup.png"
@@ -252,7 +252,7 @@ const Bento = () => {
                   sizes="(min-width: 420px) 160px, (min-width: 380px) calc(95vw - 220px), calc(28.33vw + 39px)"
                 />
               </div>
-              <div className="relative bg-white overflow-hidden h-[22vh]">
+              <div className="relative bg-white overflow-hidden h-[25vh]">
                 {" "}
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   Frappuccino
@@ -269,15 +269,23 @@ const Bento = () => {
             </div>
 
             {/* Row 3: 3 equal columns */}
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-2 w-[85vw] font-sodo-sans text-sm">
               <div className="relative bg-white overflow-hidden z-[1] h-[14vh]">
                 {" "}
                 <p className=" p-[0.5rem] z-[7] text-black  font-bold">Foods</p>
                 <Image
-                  src="/images/food.png"
+                  src="/images/food1.png"
                   width={200}
                   height={200}
-                  className="Image absolute z-[2] w-[20rem] h-[5rem] right-[-1rem] top-[6vh]"
+                  className="Image absolute z-[5] w-auto h-[2.5rem] right-[2rem] top-[9vh]"
+                  alt=""
+                  sizes="(min-width: 420px) 28.21vw, (min-width: 380px) calc(85vw - 232px), calc(18.33vw + 25px)"
+                />
+                <Image
+                  src="/images/food2.png"
+                  width={200}
+                  height={200}
+                  className="Image absolute z-[4] w-auto h-[5rem] right-[-1.5rem]"
                   alt=""
                   sizes="(min-width: 420px) 28.21vw, (min-width: 380px) calc(85vw - 232px), calc(18.33vw + 25px)"
                 />
@@ -316,7 +324,7 @@ const Bento = () => {
             </div>
 
             {/* Row 4: 3 equal columns */}
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-2 w-[85vw] font-sodo-sans text-sm">
               <div className="relative bg-white overflow-hidden h-[14vh]">
                 {" "}
                 <p className=" p-[0.5rem] ] text-black  font-bold">
@@ -346,7 +354,7 @@ const Bento = () => {
                 />
               </div>
               <div className="relative bg-white overflow-hidden h-[14vh]">
-                <p className=" p-[0.5rem] ] text-black  font-bold">
+                <p className=" p-[0.5rem] ] text-black font-bold ">
                   Coffee at home
                 </p>
                 <Image
