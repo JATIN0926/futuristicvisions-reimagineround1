@@ -4,6 +4,7 @@ import EmblaCarousel from "./EmblaCarousel";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import "./style.css";
+import { CustomLink } from "@/components/CustomLink/CustomLink";
 
 const OPTIONS = { dragFree: true };
 
@@ -118,19 +119,19 @@ const Products = () => {
     }
   };
 
-  const handleCursorClick = () => {
-    if (cursorVisible) {
-      gsap.to(cursorRef.current, {
-        scale: 0.7,
-        duration: 0.2,
-        ease: "power3.out",
-        onComplete: () => {
-          router.push("/product-page");
-        },
-      });
-      document.body.classList.remove("hide-cursor");
-    }
+  const handleTransition = async () => {
+    const body = document.querySelector("body");
+    body?.classList.add("page-transition");
+
+    await sleep(500);
+    router.push("/product-page");
+    await sleep(500);
+
+    body?.classList.remove("page-transition");
   };
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
   return (
     <div
@@ -139,7 +140,6 @@ const Products = () => {
     >
       {isSmallScreen && (
         <motion.button
-          onClick={() => router.push("/product-page")}
           whileTap={{ scale: 0.7 }}
           className="small-screen-cursor z-50 text-[0.65rem]"
         >
@@ -148,11 +148,12 @@ const Products = () => {
       )}
       <div
         className="w-full flex items-center justify-center"
-        onClick={handleCursorClick}
+        onClick={handleTransition}
         ref={textRef}
       >
         {!isSmallScreen && (
           <motion.div
+            onClick={handleTransition}
             ref={cursorRef}
             whileTap={{ scale: 0.6 }}
             className="explore-cursor text-[0.75rem]"

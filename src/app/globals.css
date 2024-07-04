@@ -130,9 +130,18 @@
 }
 body{
   background-color: #F1F0EA;
+  transition-property: opacity, transform, filter, background;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
 }
 
 canvas{
   margin: 0;
   padding: 0;
+}
+.page-transition {
+  opacity: 0;
+  background: #006240;
+  transform: translateY(40px);
+  filter: blur(12px);
 }

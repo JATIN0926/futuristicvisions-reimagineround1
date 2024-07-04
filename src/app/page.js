@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useLoader } from "@/context/LoaderContext";
 
 import AboutUs from "@/components/HomePage/AboutUs/AboutUs";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
@@ -17,20 +18,29 @@ export default function Home() {
   //     const locomotiveScroll = new LocomotiveScroll();
   //   })();
   // }, []);
-  const [loaded, setLoaded] = useState(false);
+  const { shouldShowLoader, setShouldShowLoader } = useLoader();
+  const [loaded, setLoaded] = useState(!shouldShowLoader);
   const navbarLogoRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    if (shouldShowLoader) {
+      setLoaded(false);
+    }
+  }, [shouldShowLoader]);
+
+  const handleLoaded = () => {
+    setLoaded(true);
+    setShouldShowLoader(false);
+  };
 
   return (
     <div className="relative">
-      {!loaded && <Loader onLoaded={() => setLoaded(true)} />}
+      {!loaded && <Loader onLoaded={handleLoaded} />}
       <div
-        className={`flex flex-col  max-w-[100vw] transition-opacity duration-500 gap-8   ${
+        className={`flex flex-col max-w-[100vw] transition-opacity duration-500 gap-8 ${
           loaded ? "opacity-100" : "opacity-0"
-        }  `}
+        }`}
       >
         <Navbar ref={navbarLogoRef} productPage={false} />
         <HeroSection />
