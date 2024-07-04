@@ -140,6 +140,7 @@ const Products = () => {
     >
       {isSmallScreen && (
         <motion.button
+          onClick={handleTransition}
           whileTap={{ scale: 0.7 }}
           className="small-screen-cursor z-50 text-[0.65rem]"
         >
@@ -148,12 +149,11 @@ const Products = () => {
       )}
       <div
         className="w-full flex items-center justify-center"
-        onClick={handleTransition}
+        onClick={isSmallScreen ? null : handleTransition}
         ref={textRef}
       >
         {!isSmallScreen && (
           <motion.div
-            onClick={handleTransition}
             ref={cursorRef}
             whileTap={{ scale: 0.6 }}
             className="explore-cursor text-[0.75rem]"
