@@ -52,7 +52,7 @@ const ProductsList = () => {
             <div className="flex items-center justify-center w-[45%] laptop:w-[35%] tbPortrait:w-[30%]">
               <button className="bg-[#02754B] rounded-md text-white p-1.5 pl-4 w-[45%] laptop:w-[50%] flex items-center justify-start gap-2">
                 <Image
-                  src="/icons/WheelChair.png"
+                  src="/icons/WheelChair.svg"
                   width={20}
                   height={20}
                   alt=""
