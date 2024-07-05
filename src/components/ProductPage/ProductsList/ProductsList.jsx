@@ -56,6 +56,7 @@ const ProductsList = () => {
                   width={20}
                   height={20}
                   alt=""
+                  priority
                 />
                 <h1 className="text-sm laptop:text-lg font-medium">Dine In</h1>
               </button>

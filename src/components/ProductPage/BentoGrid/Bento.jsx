@@ -99,7 +99,7 @@ const Bento = () => {
                   height={220}
                   className="Image absolute right-[-3rem] top-[12vh]"
                   alt=""
-                  sizes="220px"
+                  // sizes="220px"
                 />
               </div>
             </div>
