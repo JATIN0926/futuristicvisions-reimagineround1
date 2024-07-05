@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import "./style.css";
-import DineIn from "../../../../public/icons/WheelChair.png";
+import DineIn from "/public/icons/WheelChair.png";
 const Bento = () => {
   return (
     <div className="w-screen mt-20 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
