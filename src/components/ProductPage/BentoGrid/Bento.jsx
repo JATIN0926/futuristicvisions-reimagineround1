@@ -94,7 +94,7 @@ const Bento = () => {
                   Coffee at home
                 </p>
                 <Image
-                  src="/images/test.jpg"
+                  src="/images/coffee.jpg"
                   width={220}
                   height={220}
                   className="Image absolute right-[-3rem] top-[12vh]"
@@ -176,7 +176,7 @@ const Bento = () => {
               <div className="menu row-span-14  h-[26.5vh] relative overflow-hidden col-span-1 bg-white">
                 <p className=" p-[0.5rem] ] text-black  font-bold">Espresso</p>
                 <Image
-                  src="/images/Espresso.png"
+                  src="/images/espresso.jpg"
                   width={250}
                   height={250}
                   className=" Image absolute right-[-4rem] top-[4rem]"
@@ -313,7 +313,7 @@ const Bento = () => {
               <div className="relative bg-white overflow-hidden h-[14vh]">
                 <p className=" p-[0.5rem] ] text-black  font-bold">Espresso</p>
                 <Image
-                  src="/images/espresso.png"
+                  src="/images/espresso.jpg"
                   width={150}
                   height={150}
                   className="Image absolute right-[-2rem] top-[6vh]"
@@ -358,7 +358,7 @@ const Bento = () => {
                   Coffee at home
                 </p>
                 <Image
-                  src="/images/coffee.png"
+                  src="/images/coffee.jpg"
                   width={150}
                   height={150}
                   className="Image absolute right-[-1.5rem] top-[6.2vh]"
