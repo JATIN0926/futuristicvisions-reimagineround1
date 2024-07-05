@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import "./style.css";
-
+import DineIn from "../../../../public/icons/WheelChair.png";
 const Bento = () => {
   return (
     <div className="w-screen mt-20 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
@@ -13,7 +13,7 @@ const Bento = () => {
           <div className="flex items-center justify-center w-[60%] laptop:w-[35%] tbPortrait:w-[30%]">
             <button className="bg-[#02754B] rounded-md text-white p-1.5 pl-4 w-[49%] mbXSmall:w-[40%] mbSmall:w-[45%] laptop:w-[50%] flex items-center justify-start font-light gap-0.5 mbXSmall:gap-1 mbSmall:gap-2">
               <Image
-                src="/icons/WheelChair.png"
+                src={DineIn}
                 width={20}
                 height={20}
                 alt=""
