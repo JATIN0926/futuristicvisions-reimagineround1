@@ -4,7 +4,7 @@ import "./style.css";
 
 const Bento = () => {
   return (
-    <div className="w-screen max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
+    <div className="w-screen mt-20 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
       <div className="w-[85%]">
         <div className="w-full flex items-center  justify-between">
           <h1 className=" font-MaleoTrials-Bold lapotp:text-3xl mbSmall:text-2xl font-light text-[#006240]">
@@ -13,7 +13,7 @@ const Bento = () => {
           <div className="flex items-center justify-center w-[60%] laptop:w-[35%] tbPortrait:w-[30%]">
             <button className="bg-[#02754B] rounded-md text-white p-1.5 pl-4 w-[49%] mbXSmall:w-[40%] mbSmall:w-[45%] laptop:w-[50%] flex items-center justify-start font-light gap-0.5 mbXSmall:gap-1 mbSmall:gap-2">
               <Image
-                src="/icons/WheelChair.svg"
+                src="/icons/WheelChair.png"
                 width={20}
                 height={20}
                 alt=""

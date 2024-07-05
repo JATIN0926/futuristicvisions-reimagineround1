@@ -11,9 +11,9 @@
    }
   
   .gift-card-sec{
-    background:url('/images/Frame\ 46.svg');
-    background-size: cover;
-    background-position: center;
+    /* background:url('/images/Frame\ 46.svg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
     display: flex;
     height: 60vh;
     width: 85%;

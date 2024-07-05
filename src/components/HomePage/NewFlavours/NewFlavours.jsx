@@ -54,7 +54,7 @@ const NewFlavours = () => {
     } else if (dimensions.width <= 1100) {
       newPosition = dimensions.height * 0.85; // For medium screens
     } else if (dimensions.width <= 1300) {
-      newPosition = dimensions.height * 0.7; // For large screens
+      newPosition = dimensions.height * 0.65; // For large screens
     } else if (dimensions.width <= 1600) {
       newPosition = dimensions.height * 0.72; // For large screens
     } else {

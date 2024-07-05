@@ -15,9 +15,7 @@ module.exports = {
         "MaleoTrials-Regular": ['"MaleoTrials Regular"', "sans-serif"],
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gift-bg": "url(/images/gift_bg.png)",
       },
       screens: {
         mbMini: "290px",

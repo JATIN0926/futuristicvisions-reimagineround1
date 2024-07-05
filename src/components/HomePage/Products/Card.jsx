@@ -93,7 +93,12 @@ const Card = ({ product }) => {
     >
       {product.outOfStock ? (
         <div className="w-32 h-8 absolute left-2 top-3 bg-[#EBFEF4]  rounded-lg">
-          <Image src="/icons/outOfStock.svg" fill alt="outOfStock" />
+          <Image
+            src="/icons/outOfStock.svg"
+            fill
+            alt="outOfStock"
+            sizes="calc(50vw - 40px)"
+          />
         </div>
       ) : product.veg ? (
         <div className="w-4 h-4 absolute left-3 top-3">
@@ -121,6 +126,7 @@ const Card = ({ product }) => {
               e.stopPropagation();
               handleCountChange(-1);
             }}
+            sizes="220px"
           />
           {count}
           <Image
@@ -132,6 +138,7 @@ const Card = ({ product }) => {
               e.stopPropagation();
               handleCountChange(1);
             }}
+            sizes="220px"
           />
         </div>
       )}
