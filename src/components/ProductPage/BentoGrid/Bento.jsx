@@ -12,7 +12,7 @@ const Bento = () => {
           <div className="flex items-center justify-center w-[60%] laptop:w-[35%] tbPortrait:w-[30%]">
             <button className="bg-[#02754B] rounded-md text-white p-1.5 pl-4 w-[49%] mbXSmall:w-[40%] mbSmall:w-[45%] laptop:w-[50%] flex items-center justify-start font-light gap-0.5 mbXSmall:gap-1 mbSmall:gap-2">
               <Image
-                src="/icons/WheelChair.png"
+                src="/icons/accessible.svg"
                 width={20}
                 height={20}
                 alt=""
@@ -94,7 +94,7 @@ const Bento = () => {
                   Coffee at home
                 </p>
                 <Image
-                  src="/images/coffee.png"
+                  src="/images/test.jpg"
                   width={220}
                   height={220}
                   className="Image absolute right-[-3rem] top-[12vh]"
