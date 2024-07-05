@@ -229,6 +229,7 @@ const NewFlavours = () => {
       duration: 0.2,
       ease: "power3.out",
     });
+    document.body.classList.remove("hide-cursor");
   };
 
   return (

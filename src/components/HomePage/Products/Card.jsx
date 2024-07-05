@@ -17,7 +17,7 @@ const Card = ({ product }) => {
     }
 
     const handleMouseEnter = () => {
-      if (count === 0 && cursorVisible) {
+      if (count === 0 && cursorVisible && !product.outOfStock) {
         gsap.to(cursorRef.current, {
           scale: 1,
           opacity: 1,
@@ -111,7 +111,7 @@ const Card = ({ product }) => {
       )}
 
       <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-[#F0DFB0] rounded-full transform -translate-x-[50%] translate-y-[70%] transition-transform duration-300 group-hover:translate-y-[60%]"></div>
-      {count > 0 && (
+      {count > 0 && !product.outOfStock && (
         <div
           className={`absolute z-20 top-5 right-5 rounded-full font-semibold border-[1.5px] border-[#00A062] text-[#00A062] font-sodo-sans flex items-center justify-between p-2 w-[5rem] cursor-pointer`}
           onMouseEnter={() => setCursorVisible(false)}

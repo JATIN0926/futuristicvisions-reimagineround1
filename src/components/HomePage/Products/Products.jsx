@@ -141,6 +141,7 @@ const Products = () => {
     await sleep(500);
 
     body?.classList.remove("page-transition");
+    document.body.classList.remove("hide-cursor");
   };
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
