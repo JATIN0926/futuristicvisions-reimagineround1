@@ -96,6 +96,7 @@ const Products = () => {
       textContainer.removeEventListener("mouseenter", handleMouseEnter);
       textContainer.removeEventListener("mouseleave", handleMouseLeave);
       textContainer.removeEventListener("mousemove", handleMouseMove);
+      productPage.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [cursorVisible, isSmallScreen]);
 
@@ -120,6 +121,18 @@ const Products = () => {
   };
 
   const handleTransition = async () => {
+    if (cursorRef.current) {
+      gsap.to(cursorRef.current, {
+        scale: 0.6,
+        duration: 0.2,
+        ease: "power3.out",
+      });
+    }
+    gsap.to(".small-screen-cursor", {
+      scale: 0.6,
+      duration: 0.2,
+      ease: "power3.out",
+    });
     const body = document.querySelector("body");
     body?.classList.add("page-transition");
 
@@ -132,7 +145,6 @@ const Products = () => {
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-
   return (
     <div
       ref={productPageRef}

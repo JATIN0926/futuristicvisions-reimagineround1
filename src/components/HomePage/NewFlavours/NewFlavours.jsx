@@ -10,10 +10,14 @@ import {
   useMotionValue,
 } from "framer-motion";
 import OurFlavours from "./OurFlavours";
+import { gsap } from "gsap";
 import "./style.css";
+import { CustomLink } from "@/components/CustomLink/CustomLink";
 
 const NewFlavours = () => {
   const container = useRef();
+  const CustomcursorRef = useRef();
+  const circularContainerRef = useRef(null);
   const [scope, animate] = useAnimate();
   const { scrollYProgress } = useScroll({
     target: container,
@@ -48,11 +52,11 @@ const NewFlavours = () => {
     } else if (dimensions.width <= 800) {
       newPosition = dimensions.height * 0.85; // For medium screens
     } else if (dimensions.width <= 1100) {
-      newPosition = dimensions.height * 0.8; // For medium screens
+      newPosition = dimensions.height * 0.85; // For medium screens
     } else if (dimensions.width <= 1300) {
-      newPosition = dimensions.height * 0.65; // For large screens
+      newPosition = dimensions.height * 0.7; // For large screens
     } else if (dimensions.width <= 1600) {
-      newPosition = dimensions.height * 0.6; // For large screens
+      newPosition = dimensions.height * 0.72; // For large screens
     } else {
       newPosition = dimensions.height * 0.75; // For very large screens
     }
@@ -72,8 +76,10 @@ const NewFlavours = () => {
       newRadius = width * 0.19; // For large screens
     } else if (width <= 1200) {
       newRadius = width * 0.17; // For larger screens
+    } else if (width <= 1400) {
+      newRadius = width * 0.15; // For larger screens
     } else {
-      newRadius = width * 0.16; // For very large screens
+      newRadius = width * 0.14; // For very large screens
     }
 
     console.log("New Radius:", newRadius); // Log new calculated radius
@@ -165,6 +171,66 @@ const NewFlavours = () => {
     }
     return keyframes;
   };
+
+  useEffect(() => {
+    const cursor = CustomcursorRef.current;
+    const circularContainer = circularContainerRef.current;
+    gsap.set(cursor, { scale: 0, opacity: 0 });
+
+    const handleMouseEnter = () => {
+      gsap.to(cursor, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power4.out",
+      });
+      document.body.classList.add("hide-cursor");
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(cursor, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power4.out",
+      });
+      document.body.classList.remove("hide-cursor");
+    };
+
+    const handleMouseMove = (e) => {
+      if (circularContainer) {
+        const rect = circularContainer.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        gsap.to(cursor, {
+          x: mouseX,
+          y: mouseY,
+          duration: 0.3,
+          ease: "power3.out",
+        });
+      }
+    };
+
+    circularContainer.addEventListener("mouseenter", handleMouseEnter);
+    circularContainer.addEventListener("mouseleave", handleMouseLeave);
+    circularContainer.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      circularContainer.removeEventListener("mouseenter", handleMouseEnter);
+      circularContainer.removeEventListener("mouseleave", handleMouseLeave);
+      circularContainer.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  const handleClick = () => {
+    gsap.to(CustomcursorRef.current, {
+      scale: 0.6,
+      duration: 0.2,
+      ease: "power3.out",
+    });
+  };
+
   return (
     <div
       ref={container}
@@ -241,43 +307,56 @@ const NewFlavours = () => {
         </div>
       </div>
 
-      <div className="max-h-[130vh] h-[50vh] mbXSmall:h-[65vh] mbSmall:h-screen tbPortrait:h-[130vh] flex items-center justify-center w-screen max-w-full relative">
+      <CustomLink href="/product-page">
         <div
-          ref={scope}
-          className="relative w-full h-full flex items-center justify-center"
+          ref={circularContainerRef}
+          onClick={handleClick}
+          className="max-h-[130vh] h-[50vh] mbXSmall:h-[65vh] mbSmall:h-screen tbPortrait:h-[130vh] flex items-center justify-center w-screen max-w-full relative"
         >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: textVisible ? 1 : 0 }}
-            transition={{ duration: 0.4, ease: "linear" }}
-            className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+            ref={CustomcursorRef}
+            whileTap={{ scale: 0.6 }}
+            className="explore-cursor2 text-[0.75rem]"
           >
-            <OurFlavours>
-              <h1 className="text-[#1E3932] font-extrabold text-xs mbXSmall:text-base mbSmall:text-lg tbPortrait:text-xl text-center">
-                Explore new Flavours
-              </h1>
-            </OurFlavours>
+            Explore more
           </motion.div>
-          <div className="w-full"></div>
-          {additionalCups.map((img, i) => (
+          <div
+            ref={scope}
+            className="relative w-full h-full flex items-center justify-center"
+          >
             <motion.div
-              key={i}
-              className={` w-[30%] h-[40%] mbXSmall:w-[27%] mbXSmall:h-[35%] mbSmall:w-[23%] mbSmall:h-[32%] mbMedium:w-[20%] mbMedium:h-[30%] laptop:w-[16%] laptop:h-[26%] tbPortrait:w-[14.5%] tbPortrait:h-[23%] absolute cup-${i}`}
-              style={{
-                opacity: 0,
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: textVisible ? 1 : 0 }}
+              transition={{ duration: 0.4, ease: "linear" }}
+              className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
             >
-              <Image
-                src={img}
-                alt={`flav-${i}`}
-                fill
-                className="object-contain"
-                sizes="calc(14.48vw - 11px)"
-              />
+              <OurFlavours>
+                <h1 className="text-[#1E3932] font-extrabold text-xs mbXSmall:text-base mbSmall:text-lg tbPortrait:text-xl text-center">
+                  Explore new Flavours
+                </h1>
+              </OurFlavours>
             </motion.div>
-          ))}
+            <div className="w-full"></div>
+            {additionalCups.map((img, i) => (
+              <motion.div
+                key={i}
+                className={` w-[30%] h-[40%] mbXSmall:w-[27%] mbXSmall:h-[35%] mbSmall:w-[23%] mbSmall:h-[32%] mbMedium:w-[20%] mbMedium:h-[30%] laptop:w-[16%] laptop:h-[26%] tbPortrait:w-[14.5%] tbPortrait:h-[23%] absolute cup-${i}`}
+                style={{
+                  opacity: 0,
+                }}
+              >
+                <Image
+                  src={img}
+                  alt={`flav-${i}`}
+                  fill
+                  className="object-contain"
+                  sizes="calc(14.48vw - 11px)"
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </CustomLink>
     </div>
   );
 };
