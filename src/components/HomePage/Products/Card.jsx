@@ -88,7 +88,7 @@ const Card = ({ product }) => {
       ref={cardRef}
       className={`group relative hover:scale-[1.03] transition-all duration-300  ${
         product.outOfStock ? "grayscale" : ""
-      }  p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-md flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[70%] mbXSmall:basis-[45%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[23%] tbPortrait:basis-[22%] card`}
+      }  p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-md flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[70%] mbXSmall:basis-[45%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[28%] tbPortrait:basis-[22%] card`}
       onClick={handleCardClick}
     >
       <div className="w-[10rem] h-16 z-50 absolute left-[15%] top-[55%]">
@@ -116,14 +116,14 @@ const Card = ({ product }) => {
       <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-[#F0DFB0] rounded-full transform -translate-x-[50%] translate-y-[70%] transition-transform duration-300 group-hover:translate-y-[60%]"></div>
       {count > 0 && !product.outOfStock && (
         <div
-          className={`absolute z-20 top-5 right-5 rounded-full font-semibold border-[1.5px] border-[#00A062] text-[#00A062] font-sodo-sans flex items-center justify-between p-2 w-[5rem] cursor-pointer`}
+          className={`absolute z-20 text-sm top-5 right-5 rounded-full font-semibold border-[1.5px] border-[#00A062] text-[#00A062] font-sodo-sans flex items-center justify-between p-1.5 w-[4.5rem] cursor-pointer`}
           onMouseEnter={() => setCursorVisible(false)}
           onMouseLeave={() => setCursorVisible(true)}
         >
           <Image
             src="/icons/minus.png"
-            width={16}
-            height={20}
+            width={14}
+            height={16}
             alt=""
             onClick={(e) => {
               e.stopPropagation();
@@ -134,8 +134,8 @@ const Card = ({ product }) => {
           {count}
           <Image
             src="/icons/Plus.png"
-            width={16}
-            height={16}
+            width={14}
+            height={14}
             alt=""
             onClick={(e) => {
               e.stopPropagation();
@@ -172,10 +172,10 @@ const Card = ({ product }) => {
           </div>
         )}
         <div className="w-full font-sodo-sans">
-          <h1 className="text-sm mbXSmall:text-lg text-start font-semibold">
+          <h1 className="text-sm mbXSmall:text-[0.75rem] laptop:text-lg  text-start font-semibold">
             {product.name}
           </h1>
-          <p className="font-medium text-[0.8rem] mbXSmall:text-base">
+          <p className="font-medium text-[0.8rem] mbXSmall:text-sm mbSmall:text-base">
             {product.price}
           </p>
         </div>

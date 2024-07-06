@@ -177,7 +177,7 @@ const ProductsList = () => {
               </div>
             </div>
           </div>
-          <div className="w-[103%] products_list flex items-center  justify-center mbMedium:justify-start gap-y-8 gap-x-[1.25rem] flex-wrap">
+          <div className="w-[103%] products_list flex items-center  justify-center gap-y-8 gap-x-[0.8rem] laptop:gap-x-[1.25rem] flex-wrap">
             {filteredProducts && filteredProducts.length > 0 ? (
               filteredProducts.map((product, index) => (
                 <Card key={index} product={product} />

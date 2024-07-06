@@ -37,25 +37,25 @@ const GiftCard = () => {
 
   return (
     <>
-      <div className="w-screen max-w-full flex items-center justify-center max-h-70">
-        <div className="gift-card-sec  bg-gift-bg bg-center bg-cover">
-          <div className="sec-text">
-            <h2 className="font-MaleoTrials-Bold tracking-wider text-2xl ml-14 mt-14 mb-9">
+      <div className="w-screen max-w-full flex  items-center justify-center max-h-70">
+        <div className="gift-card-sec flex flex-col mbMedium:flex-row ">
+          <div className="sec-text p-10 mbMedium:pl-14 gap-3 mbSmall:gap-6 items-center w-[100%] mbMedium:items-start mbMedium:w-[40%]">
+            <h2 className="font-MaleoTrials-Bold  tracking-[0.2rem]  laptop:tracking-[0.4rem] text-sm mbXSmall:text-[1rem]  laptop:text-lg tbPortrait:text-2xl  ">
               Share Joy With Others
             </h2>
-            <h1 className="font-lander-grande text-5xl font-medium ml-14 my-4 mb-9">
+            <h1 className="font-lander-grande text-3xl laptop:text-5xl font-medium  ">
               Gift Cards
             </h1>
-            <h3 className="font-sodo-sans ml-14">
+            <h3 className="font-sodo-sans text-xs mbXSmall:text-sm text-center mbMedium:text-start laptop:text-base ">
               Whether it is for a birthday, a thank you, or just because, a
               Starbucks gift cardis a heartfelt gesture that lets them savour
-              their favourite drinks and treats{" "}
+              their favourite drinks and treats.{" "}
             </h3>
           </div>
-          <div className="sec-images">
+          <div className="sec-images ">
             <img
               ref={(el) => (imagesRef.current[0] = el)}
-              className="img-left image mr--5"
+              className="img-left image "
               src="/images/image163-removebg-preview.png"
               alt="image1"
             />
