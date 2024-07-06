@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { useLoader } from "@/context/LoaderContext";
-
 import AboutUs from "@/components/HomePage/AboutUs/AboutUs";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
 import Flavours from "@/components/HomePage/Flavours/Flavours";
@@ -10,6 +8,7 @@ import NewFlavours from "@/components/HomePage/NewFlavours/NewFlavours";
 import Products from "@/components/HomePage/Products/Products";
 import Loader from "@/components/Loader/Loader";
 import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
+import { useGlobal } from "@/context/GlobalContext";
 
 export default function Home() {
   // useEffect(() => {
@@ -18,7 +17,7 @@ export default function Home() {
   //     const locomotiveScroll = new LocomotiveScroll();
   //   })();
   // }, []);
-  const { shouldShowLoader, setShouldShowLoader } = useLoader();
+  const { shouldShowLoader, setShouldShowLoader } = useGlobal();
   const [loaded, setLoaded] = useState(!shouldShowLoader);
   const navbarLogoRef = useRef(null);
 

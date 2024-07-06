@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/HomePage/Footer/Footer";
-import { LoaderProvider } from "@/context/LoaderContext";
+import { GlobalProvider } from "@/context/GlobalContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,10 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LoaderProvider>
+        <GlobalProvider>
           {children}
           <Footer />
-        </LoaderProvider>
+        </GlobalProvider>
       </body>
     </html>
   );
