@@ -88,7 +88,7 @@ const ProductsList = () => {
             {categories.map((tag) => (
               <h1
                 key={tag}
-                className={`text-xl cursor-pointer font-normal font-MaleoTrials-Regular tracking-wider ${
+                className={` text-base hover:text-[#02754B] transition-all duration-200 laptop:text-xl cursor-pointer font-normal font-MaleoTrials-Regular tracking-wider ${
                   selectedTag === tag
                     ? "text-[#02754B] underline"
                     : "text-[#B0B0B0]"
@@ -178,9 +178,20 @@ const ProductsList = () => {
             </div>
           </div>
           <div className="w-[103%] products_list flex items-center  justify-center mbMedium:justify-start gap-y-8 gap-x-[1.25rem] flex-wrap">
-            {filteredProducts.map((product, index) => (
-              <Card key={index} product={product} />
-            ))}
+            {filteredProducts && filteredProducts.length > 0 ? (
+              filteredProducts.map((product, index) => (
+                <Card key={index} product={product} />
+              ))
+            ) : (
+              <div className="w-full h-[30vh] mbSmall:h-[50vh] flex flex-col gap-8 items-center justify-center">
+                <h1 className=" text-6xl mbSmall:text-9xl tracking-[0.1rem] text-[#E7E7E7] font-MaleoTrials-Bold">
+                  Out of stock
+                </h1>
+                <p className="  text-xl mbSmall:text-2xl tracking-[0.1rem] text-[#D1D1D1] font-MaleoTrials-Bold">
+                  We will get back to you soon
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
