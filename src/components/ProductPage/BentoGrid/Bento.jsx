@@ -15,7 +15,7 @@ const Bento = () => {
   };
 
   return (
-    <div className="w-screen mt-24 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
+    <div className="w-screen mt-20 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
       <div className="w-[85%]">
         <div className="w-full flex items-center  justify-between">
           <h1 className=" font-MaleoTrials-Medium lapotp:text-3xl mbSmall:text-2xl font-light tracking-[0.06rem] text-[#006240]">
