@@ -1,18 +1,31 @@
 "use client";
 import Card from "@/components/HomePage/Products/Card";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import products from "@/data/ProductData";
 import gsap from "gsap";
 import { easeOut } from "framer-motion";
+import { useGlobal } from "@/context/GlobalContext";
 
 const ProductsList = () => {
+  const { selectedCategory, setSelectedCategory } = useGlobal();
   const [selectedTag, setSelectedTag] = useState("All Products");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [filteredProducts, setfilteredProducts] = useState([]);
+  useEffect(() => {
+    const filteredProducts = products.filter((item) =>
+      item.tags.includes(selectedTag)
+    );
+    setfilteredProducts(filteredProducts);
+  }, [selectedTag]);
 
-  const filteredProducts = products.filter((item) =>
-    item.tags.includes(selectedTag)
-  );
+  useEffect(() => {
+    if (selectedCategory) {
+      setSelectedTag(selectedCategory);
+      animate();
+      console.log(selectedCategory);
+    }
+  }, [selectedCategory]);
 
   const animate = () => {
     gsap.fromTo(
@@ -37,12 +50,15 @@ const ProductsList = () => {
 
   const handleCategoryClick = (tag) => {
     setSelectedTag(tag);
-    console.log(tag);
+    setSelectedCategory("");
     setDropdownOpen(false);
   };
 
   return (
-    <div className="w-screen max-w-full flex items-start justify-center p-1 mbSmall:p-2 py-4">
+    <div
+      id="products-list-section"
+      className="w-screen max-w-full flex items-start justify-center p-1 mbSmall:p-2 py-4"
+    >
       <div className="w-[95%] laptop:w-[85%]">
         <div className="flex flex-col items-center justify-center gap-10 w-full">
           <div className="w-full items-center justify-between hidden mbMedium:flex">
@@ -72,13 +88,14 @@ const ProductsList = () => {
             {categories.map((tag) => (
               <h1
                 key={tag}
-                className={`text-xl cursor-pointer font-semibold font-MaleoTrials-Regular tracking-wider ${
+                className={`text-xl cursor-pointer font-normal font-MaleoTrials-Regular tracking-wider ${
                   selectedTag === tag
                     ? "text-[#02754B] underline"
                     : "text-[#B0B0B0]"
                 }`}
                 onClick={() => {
-                  setSelectedTag(tag);
+                  handleCategoryClick(tag);
+                  // setSelectedTag(tag);
                   animate();
                 }}
               >
@@ -143,7 +160,7 @@ const ProductsList = () => {
                   {categories.map((tag) => (
                     <h1
                       key={tag}
-                      className={` text-base mbXSmall:text-lg mbSmall:text-xl cursor-pointer font-light font-MaleoTrials-Bold tracking-wide ${
+                      className={` text-base mbXSmall:text-lg mbSmall:text-xl cursor-pointer font-normal font-MaleoTrials-Regular tracking-wide ${
                         selectedTag === tag
                           ? "text-[#02754B] underline"
                           : "text-[#B0B0B0]"
@@ -160,7 +177,7 @@ const ProductsList = () => {
               </div>
             </div>
           </div>
-          <div className="w-full products_list flex items-center  justify-center mbMedium:justify-start gap-0 tbPortrait:gap-3 flex-wrap">
+          <div className="w-[103%] products_list flex items-center  justify-center mbMedium:justify-start gap-y-8 gap-x-[1.25rem] flex-wrap">
             {filteredProducts.map((product, index) => (
               <Card key={index} product={product} />
             ))}

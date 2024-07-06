@@ -6,12 +6,14 @@ import GiftCard from "@/components/ProductPage/GiftCard/GiftCard";
 
 const page = () => {
   return (
-    <div className="flex flex-col gap-8 max-w-[100vw]">
+    <>
       <Navbar productPage={true} />
-      <Bento />
-      <GiftCard />
-      <ProductsList />
-    </div>
+      <div className="flex flex-col gap-[7rem] max-w-[100vw]">
+        <Bento />
+        <GiftCard />
+        <ProductsList />
+      </div>
+    </>
   );
 };
 

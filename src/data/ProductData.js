@@ -21,13 +21,13 @@ const products = [
     tags: ["All Products", "Most Popular", "Frappuccino"],
     veg: true,
   },
-  {
-    name: "Caramel Frappuccino",
-    price: "₹309.00",
-    image: "/images/item3.png",
-    tags: ["All Products", "Food"],
-    veg: true,
-  },
+  // {
+  //   name: "Caramel Frappuccino",
+  //   price: "₹309.00",
+  //   image: "/images/item3.png",
+  //   tags: ["All Products", "Frappuccino"],
+  //   veg: true,
+  // },
   {
     name: "Cold Coffee",
     price: "₹199.00",
@@ -89,13 +89,6 @@ const products = [
     price: "₹199.00",
     image: "/images/item14.png",
     tags: ["All Products", "Tea"],
-    veg: true,
-  },
-  {
-    name: "Coffee Americano",
-    price: "₹509.00",
-    image: "/images/item15.png",
-    tags: ["All Products", "Most Popular", "Coffee"],
     veg: true,
   },
   {

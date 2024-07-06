@@ -1,21 +1,24 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Image from "next/image";
 import "./style.css";
-
-
+import { useGlobal } from "@/context/GlobalContext";
 
 const Bento = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
-  const toggleAnimation = () => {
-    setIsAnimated(!isAnimated);
+  const { setSelectedCategory } = useGlobal();
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    document
+      .getElementById("products-list-section")
+      .scrollIntoView({ behavior: "smooth" });
   };
- 
+
   return (
-    <div className="w-screen mt-20 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
+    <div className="w-screen mt-24 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
       <div className="w-[85%]">
         <div className="w-full flex items-center  justify-between">
-          <h1 className=" font-MaleoTrials-Bold lapotp:text-3xl mbSmall:text-2xl font-light text-[#006240]">
+          <h1 className=" font-MaleoTrials-Medium lapotp:text-3xl mbSmall:text-2xl font-light tracking-[0.06rem] text-[#006240]">
             Explore By Category
           </h1>
           <div className="flex items-center justify-center w-[60%] laptop:w-[35%] tbPortrait:w-[30%]">
@@ -54,21 +57,27 @@ const Bento = () => {
             {/* Subcolumn 1 */}
             <div className="grid grid-cols-9 grid-rows-subgrid gap-4">
               {/* Rows */}
-              <div className="laptop:row-span-15 laptop:col-span-9 laptop:h-[26.2vh] laptop:w-[41.5vw] bg-[url('/images/gridRow1.png')] bg-cover hover:border-[#006240] hover:border-4 transition-all duration-200 bg-center" tabIndex={0} ></div>
+              <div className="laptop:row-span-15 laptop:col-span-9 laptop:h-[26.2vh] laptop:w-[41.5vw] bg-[url('/images/gridRow1.png')] bg-cover   bg-center"></div>
 
-              <div className="menu row-span-14 col-span-5 z-[1] h-[28.5vh] relative overflow-hidden hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
+              <div
+                className="menu row-span-14 col-span-5 z-[1] cursor-pointer h-[28.5vh] relative overflow-hidden   bg-white"
+                onClick={() => handleCategoryClick("Food")}
+              >
                 <p className=" p-[0.5rem] z-[4] text-black font-bold">Food</p>
                 <Image
                   src="/images/food.png"
                   width={280}
                   height={150}
                   sizes="(min-width: 1340px) 280px, calc(18.44vw + 37px)"
-                  className="Image  origin-bottom-right absolute z-[2] right-[-2rem] top-[6.2vh]"
+                  className="Image origin-bottom-right absolute z-[2] right-[-2rem] top-[6.2vh]"
                   alt=""
                 />
               </div>
 
-              <div className="menu row-span-14 h-[28.5vh] col-span-4 relative overflow-hidden bg-white hover:border-[#006240] hover:border-4 transition-all duration-200">
+              <div
+                className="menu row-span-14 cursor-pointer h-[28.5vh] col-span-4 relative overflow-hidden bg-white  "
+                onClick={() => handleCategoryClick("Tea")}
+              >
                 <p className=" p-[0.5rem] text-black font-bold">Tea</p>
                 <Image
                   src="/images/tea1.png"
@@ -87,7 +96,10 @@ const Bento = () => {
                   sizes="150px"
                 />
               </div>
-              <div className="menu row-span-14 h-[26.5vh] relative col-span-3 overflow-hidden  hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
+              <div
+                className="menu row-span-14 cursor-pointer h-[26.5vh] relative col-span-3 overflow-hidden    bg-white"
+                onClick={() => handleCategoryClick("Merchandise")}
+              >
                 <p className=" p-[0.5rem] text-black font-bold">Merchandise</p>
                 <Image
                   src="/images/merchandise.png"
@@ -98,7 +110,10 @@ const Bento = () => {
                   sizes="(min-width: 1620px) 200px, 12.33vw"
                 />
               </div>
-              <div className="menu hover:border-[#006240] hover:border-4 transition-all duration-200 row-span-14 h-[26.5vh]  col-span-6 relative overflow-hidden bg-white">
+              <div
+                className="menu   row-span-14 h-[26.5vh] cursor-pointer  col-span-6 relative overflow-hidden bg-white"
+                onClick={() => handleCategoryClick("Coffee at home")}
+              >
                 <p className=" p-[0.5rem] text-black font-bold">
                   Coffee at home
                 </p>
@@ -119,7 +134,10 @@ const Bento = () => {
             {/* Subcolumn 1 */}
             <div className="grid grid-cols-2 grid-rows-subgrid gap-4">
               {/* Rows */}
-              <div className="row-span-6 col-span-2 relative flex hover:border-[#006240] hover:border-4 transition-all duration-200 overflow-hidden bg-[#DD92C0] ">
+              <div
+                className="row-span-6 col-span-2 relative flex cursor-pointer   overflow-hidden bg-[#DD92C0] "
+                onClick={() => handleCategoryClick("Most Popular")}
+              >
                 <p className=" absolute top-0 left-0 p-[0.5rem] !pb-[-2rem] text-white font-semibold">
                   Most Popular
                 </p>
@@ -158,7 +176,10 @@ const Bento = () => {
                   />
                 </div>
               </div>
-              <div className="menu row-span-15 h-[44.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
+              <div
+                className="menu row-span-15 h-[44.5vh] cursor-pointer relative overflow-hidden col-span-1   bg-white"
+                onClick={() => handleCategoryClick("Coffee")}
+              >
                 <p className=" p-[0.5rem] text-black  font-bold">Coffee</p>
                 <Image
                   src="/images/coffeeCup.png"
@@ -169,7 +190,10 @@ const Bento = () => {
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
               </div>
-              <div className="menu row-span-15  h-[44.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
+              <div
+                className="menu row-span-15 cursor-pointer h-[44.5vh] relative overflow-hidden col-span-1   bg-white"
+                onClick={() => handleCategoryClick("Frappuccino")}
+              >
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   Frappuccino
                 </p>
@@ -182,7 +206,10 @@ const Bento = () => {
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
               </div>
-              <div className="menu row-span-14  h-[26.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
+              <div
+                className="menu row-span-14 cursor-pointer  h-[26.5vh] relative overflow-hidden col-span-1   bg-white"
+                onClick={() => handleCategoryClick("Espresso drink")}
+              >
                 <p className=" p-[0.5rem] ] text-black  font-bold">Espresso</p>
                 <Image
                   src="/images/espresso.jpg"
@@ -193,7 +220,10 @@ const Bento = () => {
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
               </div>
-              <div className="menu row-span-14 h-[26.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
+              <div
+                className="menu row-span-14 cursor-pointer h-[26.5vh] relative overflow-hidden col-span-1   bg-white"
+                onClick={() => handleCategoryClick("New flavours")}
+              >
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   New Flavours
                 </p>
@@ -224,7 +254,10 @@ const Bento = () => {
                   sizes="(min-width: 420px) 71.61vw, (min-width: 380px) calc(215vw - 580px), calc(48.33vw + 63px)"
                 />
               </div>
-              <div className="w-[15vw]  relative bg-[#DD92C0] h-[20vh] flex items-end justify-start  overflow-hidden">
+              <div
+                className="w-[15vw]  relative bg-[#DD92C0] h-[20vh] flex items-end justify-start  overflow-hidden cursor-pointer"
+                onClick={() => handleCategoryClick("Most Popular")}
+              >
                 <p className="flex self-start  pl-[1rem] pt-[1rem] text-white rotate-90 writing-mode:vertical-lr font-sodo-sans font-regular text-sm mbXSmall:text-base mbXSmall:text-nowrap mbXSmall:pt-[8vh] ">
                   {" "}
                   Most Popular
@@ -250,7 +283,10 @@ const Bento = () => {
 
             {/* Row 2: Split into 2 equal columns */}
             <div className="grid grid-cols-2 gap-2 relative w-[85vw] font-sodo-sans ">
-              <div className="relative bg-white overflow-hidden h-[25vh]">
+              <div
+                className="relative bg-white cursor-pointer overflow-hidden h-[25vh]"
+                onClick={() => handleCategoryClick("Coffee")}
+              >
                 <p className=" p-[0.5rem] text-black  font-bold">Coffee</p>
                 <Image
                   src="/images/coffeeCup.png"
@@ -261,7 +297,10 @@ const Bento = () => {
                   sizes="(min-width: 420px) 160px, (min-width: 380px) calc(95vw - 220px), calc(28.33vw + 39px)"
                 />
               </div>
-              <div className="relative bg-white overflow-hidden h-[25vh]">
+              <div
+                className="relative bg-white overflow-hidden cursor-pointer h-[25vh]"
+                onClick={() => handleCategoryClick("Frappuccino")}
+              >
                 {" "}
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   Frappuccino
@@ -279,7 +318,10 @@ const Bento = () => {
 
             {/* Row 3: 3 equal columns */}
             <div className="grid grid-cols-3 gap-2 w-[85vw] font-sodo-sans text-sm">
-              <div className="relative bg-white overflow-hidden z-[1] h-[14vh]">
+              <div
+                className="relative bg-white overflow-hidden z-[1] h-[14vh]"
+                onClick={() => handleCategoryClick("Food")}
+              >
                 {" "}
                 <p className=" p-[0.5rem] z-[7] text-black  font-bold">Foods</p>
                 <Image
@@ -299,7 +341,10 @@ const Bento = () => {
                   sizes="(min-width: 420px) 28.21vw, (min-width: 380px) calc(85vw - 232px), calc(18.33vw + 25px)"
                 />
               </div>
-              <div className="relative bg-white overflow-hidden h-[14vh]">
+              <div
+                className="relative bg-white overflow-hidden cursor-pointer h-[14vh]"
+                onClick={() => handleCategoryClick("Tea")}
+              >
                 {" "}
                 <p className=" p-[0.5rem] ] text-black  font-bold">Tea</p>
                 <Image
@@ -319,7 +364,10 @@ const Bento = () => {
                   sizes="80px"
                 />
               </div>
-              <div className="relative bg-white overflow-hidden h-[14vh]">
+              <div
+                className="relative bg-white overflow-hidden cursor-pointer h-[14vh]"
+                onClick={() => handleCategoryClick("Espresso drink")}
+              >
                 <p className=" p-[0.5rem] ] text-black  font-bold">Espresso</p>
                 <Image
                   src="/images/espresso.jpg"
@@ -334,7 +382,10 @@ const Bento = () => {
 
             {/* Row 4: 3 equal columns */}
             <div className="grid grid-cols-3 gap-2 w-[85vw] font-sodo-sans text-sm">
-              <div className="relative bg-white overflow-hidden h-[14vh]">
+              <div
+                className="relative bg-white overflow-hidden cursor-pointer h-[14vh]"
+                onClick={() => handleCategoryClick("New flavours")}
+              >
                 {" "}
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   New Flavours
@@ -348,7 +399,10 @@ const Bento = () => {
                   sizes="(min-width: 600px) 150px, (min-width: 420px) calc(22.5vw + 20px), (min-width: 380px) calc(85vw - 232px), calc(18.33vw + 25px)"
                 />
               </div>
-              <div className="relative bg-white overflow-hidden h-[14vh]">
+              <div
+                className="relative bg-white overflow-hidden cursor-pointer h-[14vh]"
+                onClick={() => handleCategoryClick("Merchandise")}
+              >
                 {" "}
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   Merchandise
@@ -362,7 +416,10 @@ const Bento = () => {
                   sizes="(min-width: 600px) 150px, (min-width: 420px) calc(22.5vw + 20px), (min-width: 380px) calc(85vw - 232px), calc(18.33vw + 25px)"
                 />
               </div>
-              <div className="relative bg-white overflow-hidden h-[14vh]">
+              <div
+                className="relative bg-white overflow-hidden cursor-pointer h-[14vh]"
+                onClick={() => handleCategoryClick("Coffee at home")}
+              >
                 <p className=" p-[0.5rem] ] text-black font-bold ">
                   Coffee at home
                 </p>
@@ -442,7 +499,10 @@ const Bento = () => {
                 </div>
             </div>
         </div> */}
-        <div className="flex flex-1 mbMini:mt-[1rem] laptop:mt-[9rem] p-[1rem] justify-center items-center border border-black font-bold">
+        <div
+          className="flex flex-1 cursor-pointer mbMini:mt-[1rem] laptop:mt-[9rem] p-[1rem] justify-center items-center border border-black font-bold"
+          onClick={() => handleCategoryClick("Other Beverages")}
+        >
           Explore other beverages
         </div>
       </div>

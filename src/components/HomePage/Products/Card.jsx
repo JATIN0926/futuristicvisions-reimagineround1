@@ -86,11 +86,14 @@ const Card = ({ product }) => {
   return (
     <div
       ref={cardRef}
-      className={`group relative ${
+      className={`group relative hover:scale-[1.03] transition-all duration-300  ${
         product.outOfStock ? "grayscale" : ""
       }  p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-md flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[70%] mbXSmall:basis-[45%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[23%] tbPortrait:basis-[22%] card`}
       onClick={handleCardClick}
     >
+      <div className="w-[10rem] h-16 z-50 absolute left-[15%] top-[55%]">
+        <Image src="/images/shadow.png" fill alt="veg" />
+      </div>
       {product.outOfStock ? (
         <div className="w-32 h-8 absolute left-2 top-3 bg-[#EBFEF4]  rounded-lg">
           <Image
@@ -143,17 +146,31 @@ const Card = ({ product }) => {
         </div>
       )}
       <div className="relative z-10 flex flex-col items-center h-full justify-between w-full">
-        <div className="h-[90%] w-[90%] relative">
-          <div className="relative w-full h-full">
-            <Image
-              src={product.image}
-              fill
-              alt={product.name}
-              className=" object-contain rounded-lg aspect-square"
-              sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
-            />
+        {product.tags.includes("Frappuccino") ? (
+          <div className="h-[60%] w-[60%] top-6 relative">
+            <div className="relative w-full h-full">
+              <Image
+                src={product.image}
+                fill
+                alt={product.name}
+                className=" object-contain rounded-lg aspect-square"
+                sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="h-[90%] w-[90%] relative">
+            <div className="relative w-full h-full">
+              <Image
+                src={product.image}
+                fill
+                alt={product.name}
+                className=" object-contain rounded-lg aspect-square"
+                sizes="(min-width: 1000px) calc(19.35vw - 16px), (min-width: 800px) calc(27.22vw - 31px), (min-width: 600px) calc(36.11vw - 30px), (min-width: 400px) calc(40.56vw - 29px), calc(63.75vw - 31px)"
+              />
+            </div>
+          </div>
+        )}
         <div className="w-full font-sodo-sans">
           <h1 className="text-sm mbXSmall:text-lg text-start font-semibold">
             {product.name}

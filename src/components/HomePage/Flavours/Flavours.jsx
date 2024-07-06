@@ -172,14 +172,14 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
               src={currentImage}
               alt="flav"
               fill
-              sizes="(min-width: 1600px) 30vw, 
-                    (min-width: 1400px) 35vw, 
-                    (min-width: 1200px) 40vw, 
-                    (min-width: 1000px) 45vw, 
-                    (min-width: 800px) 50vw, 
-                    (min-width: 600px) 55vw, 
-                    (min-width: 400px) 60vw, 
-                    80vw"
+              // sizes="(min-width: 1600px) 30vw,
+              //       (min-width: 1400px) 35vw,
+              //       (min-width: 1200px) 40vw,
+              //       (min-width: 1000px) 45vw,
+              //       (min-width: 800px) 50vw,
+              //       (min-width: 600px) 55vw,
+              //       (min-width: 400px) 60vw,
+              //       80vw"
               // priority
               className=" object-cover mbXSmall:object-contain origin-top aspect-auto"
             />
