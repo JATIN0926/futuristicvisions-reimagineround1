@@ -38,7 +38,7 @@ const GiftCard = () => {
   return (
     <>
       <div className="w-screen max-w-full flex  items-center justify-center max-h-70">
-        <div className="gift-card-sec flex flex-col mbMedium:flex-row ">
+        <div className="gift-card-sec flex flex-col mbMedium:flex-row bg-center bg-cover bg-gift-bg ">
           <div className="sec-text p-10 mbMedium:pl-14 gap-3 mbSmall:gap-6 items-center w-[100%] mbMedium:items-start mbMedium:w-[40%]">
             <h2 className="font-MaleoTrials-Bold  tracking-[0.2rem]  laptop:tracking-[0.4rem] text-sm mbXSmall:text-[1rem]  laptop:text-lg tbPortrait:text-2xl  ">
               Share Joy With Others
