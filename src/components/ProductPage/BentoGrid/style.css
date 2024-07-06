@@ -17,3 +17,16 @@
   
     transition: transform 0.5s ease-in-out;
 }
+.product-grid-item--animated {
+    animation: animateBorder 0.5s ease-in-out ;
+    border: 4px solid #006240; /* Customize border style */
+  }
+  
+  @keyframes animateBorder {
+    from {
+      border-color: transparent;
+    }
+    to {
+      border-color: #006240;
+    }
+  }

@@ -1,7 +1,16 @@
-import React from "react";
+"use client";
+import React, { useState } from 'react';
 import Image from "next/image";
 import "./style.css";
+
+
+
 const Bento = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  const toggleAnimation = () => {
+    setIsAnimated(!isAnimated);
+  };
+ 
   return (
     <div className="w-screen mt-20 max-w-full flex items-start justify-center laptop:p-2 mbMini:p-0 py-4 bg-[#F1F0EA]">
       <div className="w-[85%]">
@@ -45,9 +54,9 @@ const Bento = () => {
             {/* Subcolumn 1 */}
             <div className="grid grid-cols-9 grid-rows-subgrid gap-4">
               {/* Rows */}
-              <div className="laptop:row-span-15 laptop:col-span-9 laptop:h-[26.2vh] laptop:w-[41.5vw] bg-[url('/images/gridRow1.png')] bg-cover bg-center  "></div>
+              <div className="laptop:row-span-15 laptop:col-span-9 laptop:h-[26.2vh] laptop:w-[41.5vw] bg-[url('/images/gridRow1.png')] bg-cover hover:border-[#006240] hover:border-4 transition-all duration-200 bg-center" tabIndex={0} ></div>
 
-              <div className="menu row-span-14 col-span-5 z-[1] h-[28.5vh] relative overflow-hidden  bg-white">
+              <div className="menu row-span-14 col-span-5 z-[1] h-[28.5vh] relative overflow-hidden hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
                 <p className=" p-[0.5rem] z-[4] text-black font-bold">Food</p>
                 <Image
                   src="/images/food.png"
@@ -59,7 +68,7 @@ const Bento = () => {
                 />
               </div>
 
-              <div className="menu row-span-14  h-[28.5vh] col-span-4 relative overflow-hidden bg-white">
+              <div className="menu row-span-14 h-[28.5vh] col-span-4 relative overflow-hidden bg-white hover:border-[#006240] hover:border-4 transition-all duration-200">
                 <p className=" p-[0.5rem] text-black font-bold">Tea</p>
                 <Image
                   src="/images/tea1.png"
@@ -78,7 +87,7 @@ const Bento = () => {
                   sizes="150px"
                 />
               </div>
-              <div className="menu row-span-14 h-[26.5vh] relative col-span-3 overflow-hidden bg-white">
+              <div className="menu row-span-14 h-[26.5vh] relative col-span-3 overflow-hidden  hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
                 <p className=" p-[0.5rem] text-black font-bold">Merchandise</p>
                 <Image
                   src="/images/merchandise.png"
@@ -89,7 +98,7 @@ const Bento = () => {
                   sizes="(min-width: 1620px) 200px, 12.33vw"
                 />
               </div>
-              <div className="menu row-span-14 h-[26.5vh]  col-span-6 relative overflow-hidden bg-white">
+              <div className="menu hover:border-[#006240] hover:border-4 transition-all duration-200 row-span-14 h-[26.5vh]  col-span-6 relative overflow-hidden bg-white">
                 <p className=" p-[0.5rem] text-black font-bold">
                   Coffee at home
                 </p>
@@ -110,11 +119,11 @@ const Bento = () => {
             {/* Subcolumn 1 */}
             <div className="grid grid-cols-2 grid-rows-subgrid gap-4">
               {/* Rows */}
-              <div className="row-span-6 col-span-2 relative flex  overflow-hidden bg-[#DD92C0] ">
+              <div className="row-span-6 col-span-2 relative flex hover:border-[#006240] hover:border-4 transition-all duration-200 overflow-hidden bg-[#DD92C0] ">
                 <p className=" absolute top-0 left-0 p-[0.5rem] !pb-[-2rem] text-white font-semibold">
                   Most Popular
                 </p>
-                <div className="absolute menu w-max flex flex-row gap-5 pl-5 mr-[2rem] top-3 bottom-[-2] right-0 pr-[1rem] pt-[1rem] space-x-2 items-end justify-end ">
+                <div className="absolute menu  w-max flex flex-row gap-5 pl-5 mr-[2rem] top-3 bottom-[-2] right-0 pr-[1rem] pt-[1rem] space-x-2 items-end justify-end ">
                   <Image
                     src="/images/Coffee_01.png"
                     width={50}
@@ -149,7 +158,7 @@ const Bento = () => {
                   />
                 </div>
               </div>
-              <div className="menu row-span-15 h-[44.5vh] relative overflow-hidden col-span-1 bg-white">
+              <div className="menu row-span-15 h-[44.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
                 <p className=" p-[0.5rem] text-black  font-bold">Coffee</p>
                 <Image
                   src="/images/coffeeCup.png"
@@ -160,7 +169,7 @@ const Bento = () => {
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
               </div>
-              <div className="menu row-span-15  h-[44.5vh] relative overflow-hidden col-span-1 bg-white">
+              <div className="menu row-span-15  h-[44.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   Frappuccino
                 </p>
@@ -173,7 +182,7 @@ const Bento = () => {
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
               </div>
-              <div className="menu row-span-14  h-[26.5vh] relative overflow-hidden col-span-1 bg-white">
+              <div className="menu row-span-14  h-[26.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
                 <p className=" p-[0.5rem] ] text-black  font-bold">Espresso</p>
                 <Image
                   src="/images/espresso.jpg"
@@ -184,7 +193,7 @@ const Bento = () => {
                   sizes="(min-width: 1340px) 250px, calc(16.56vw + 31px)"
                 />
               </div>
-              <div className="menu row-span-14 h-[26.5vh] relative overflow-hidden col-span-1 bg-white">
+              <div className="menu row-span-14 h-[26.5vh] relative overflow-hidden col-span-1 hover:border-[#006240] hover:border-4 transition-all duration-200 bg-white">
                 <p className=" p-[0.5rem] ] text-black  font-bold">
                   New Flavours
                 </p>
