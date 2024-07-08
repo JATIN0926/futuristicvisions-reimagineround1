@@ -40,6 +40,7 @@ const NewFlavours = () => {
   const [radius, setRadius] = useState(0);
   const [animationTriggered, setAnimationTriggered] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const updateStopPosition = () => {
     let newPosition;
@@ -67,22 +68,20 @@ const NewFlavours = () => {
     let newRadius;
 
     if (width <= 400) {
-      newRadius = width * 0.27; // For very small screens
+      newRadius = width * 0.27;
     } else if (width <= 600) {
-      newRadius = width * 0.27; // For small screens
+      newRadius = width * 0.27;
     } else if (width <= 800) {
-      newRadius = width * 0.23; // For medium screens
+      newRadius = width * 0.23;
     } else if (width <= 1000) {
-      newRadius = width * 0.19; // For large screens
+      newRadius = width * 0.19;
     } else if (width <= 1200) {
-      newRadius = width * 0.17; // For larger screens
+      newRadius = width * 0.17;
     } else if (width <= 1400) {
-      newRadius = width * 0.15; // For larger screens
+      newRadius = width * 0.15;
     } else {
-      newRadius = width * 0.14; // For very large screens
+      newRadius = width * 0.14;
     }
-
-    console.log("New Radius:", newRadius); // Log new calculated radius
     setRadius(newRadius);
   };
 
@@ -96,6 +95,31 @@ const NewFlavours = () => {
     updateDimensions();
     return () => window.removeEventListener("resize", updateDimensions);
   }, [dimensions.width, dimensions.height]);
+
+  useEffect(() => {
+    const cursor = CustomcursorRef.current;
+
+    const handleResize = () => {
+      if (window.innerWidth < 400) {
+        setIsSmallScreen(true);
+        if (cursor) {
+          gsap.set(cursor, { scale: 0, opacity: 0, x: 0, y: 0 });
+        }
+      } else {
+        setIsSmallScreen(false);
+        if (cursor) {
+          gsap.set(cursor, { scale: 0, opacity: 0 });
+        }
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const y = useTransform(scrollYProgress, [0, 0.3], [0, stopPosition]);
   const x = useTransform(
@@ -175,7 +199,9 @@ const NewFlavours = () => {
   useEffect(() => {
     const cursor = CustomcursorRef.current;
     const circularContainer = circularContainerRef.current;
-    gsap.set(cursor, { scale: 0, opacity: 0 });
+    if (cursor && !isSmallScreen) {
+      gsap.set(cursor, { scale: 0, opacity: 0 });
+    }
 
     const handleMouseEnter = () => {
       gsap.to(cursor, {
@@ -314,13 +340,25 @@ const NewFlavours = () => {
           onClick={handleClick}
           className="max-h-[130vh] h-[50vh] mbXSmall:h-[65vh] mbSmall:h-screen tbPortrait:h-[130vh] flex items-center justify-center w-screen max-w-full relative"
         >
-          <motion.div
-            ref={CustomcursorRef}
-            whileTap={{ scale: 0.6 }}
-            className="explore-cursor2 text-[0.75rem]"
-          >
-            Explore more
-          </motion.div>
+          {isSmallScreen && (
+            <motion.button
+              // onClick={handleTransition}
+              whileTap={{ scale: 0.7 }}
+              className="small-screen-cursor2 z-50 text-[0.65rem]"
+            >
+              Explore more
+            </motion.button>
+          )}
+          {!isSmallScreen && (
+            <motion.div
+              ref={CustomcursorRef}
+              whileTap={{ scale: 0.6 }}
+              className="explore-cursor2 text-[0.75rem]"
+            >
+              Explore more
+            </motion.div>
+          )}
+
           <div
             ref={scope}
             className="relative w-full h-full flex items-center justify-center"

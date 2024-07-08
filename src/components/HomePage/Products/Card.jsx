@@ -91,9 +91,6 @@ const Card = ({ product }) => {
       }  p-4 overflow-hidden m-2 h-[18rem] mbSmall:h-[21rem] tbLandscape:h-[24rem] bg-white rounded-md flex flex-col items-start justify-start flex-grow-0 flex-shrink-0 min-w-0 basis-[70%] mbXSmall:basis-[45%] mbSmall:basis-[40%] mbMedium:basis-[30%] laptop:basis-[28%] tbPortrait:basis-[22%] card`}
       onClick={handleCardClick}
     >
-      <div className="w-[10rem] h-16 z-50 absolute left-[15%] top-[55%]">
-        <Image src="/images/shadow.png" fill alt="veg" />
-      </div>
       {product.outOfStock ? (
         <div className="w-32 h-8 absolute left-2 top-3 bg-[#EBFEF4]  rounded-lg">
           <Image

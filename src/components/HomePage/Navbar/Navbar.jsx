@@ -51,7 +51,7 @@ const Navbar = forwardRef((props, ref) => {
         props.productPage ? "bg-[#006240]" : "bg-[#F1F0EA]"
       }`}
     >
-      <div className="navbar gap-[5rem] mbXSmall:gap-[7rem] mbSmall:gap-[12rem] mbMedium:gap-[2.7rem] laptop:gap-[6rem] tbPortrait:gap-[9rem] tbMedium:gap-[11rem] font-sodo-sans">
+      <div className="navbar gap-[5rem] min-[350px]:gap-[7rem] mbXSmall:gap-[7rem] mbSmall:gap-[12rem] mbMedium:gap-[2.7rem] laptop:gap-[6rem] tbPortrait:gap-[9rem] tbMedium:gap-[11rem] font-sodo-sans">
         <nav
           className={`${
             props.productPage ? "text-[#ECECEC]" : " "
@@ -200,7 +200,7 @@ const Navbar = forwardRef((props, ref) => {
             className="cursor-pointer w-[1.7rem] h-[1.7rem] mbXSmall:w-[2rem] mbXSmall:h-[2rem]"
           />
           <Image
-            src="/icons/ShoppingCart.svg"
+            src="/icons/ShoppingCartWhite.svg"
             width={25}
             height={25}
             alt="cart"
