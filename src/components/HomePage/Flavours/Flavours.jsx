@@ -74,6 +74,8 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
         id: "flavours-enter-animation",
       });
 
+      const sectionProgressPoints = [0.3, 0.6, 0.8]; // Adjust progress points for each section transition
+
       ScrollTrigger.create({
         trigger: container,
         start: "top top",
@@ -83,52 +85,55 @@ const Flavours = ({ onCursorEnter, onCursorLeave }) => {
         scrub: 1,
         id: "flavours-scroll-animation",
         onUpdate: (self) => {
-          const progress = self.progress * (texts.length - 1);
-          const index = Math.min(Math.floor(progress), texts.length - 1);
+          const progress = self.progress;
+          let index = Math.floor(progress * texts.length);
+          if (index >= texts.length) index = texts.length - 1;
 
-          if (textElement.textContent !== texts[index]) {
-            gsap.to(textElement, {
-              opacity: 0,
-              y: 40,
-              duration: 0.3,
-              ease: "power3.inout",
-              onComplete: () => {
-                gsap.set(textElement, { opacity: 0, y: 40 });
-                gsap.set(textElement, { text: texts[index] });
-                gsap.to(textElement, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.3,
-                  ease: "power3.inOut",
-                });
-              },
-            });
+          if (progress >= sectionProgressPoints[index]) {
+            if (textElement.textContent !== texts[index]) {
+              gsap.to(textElement, {
+                opacity: 0,
+                y: 40,
+                duration: 0.3,
+                ease: "power3.inout",
+                onComplete: () => {
+                  gsap.set(textElement, { opacity: 0, y: 40 });
+                  gsap.set(textElement, { text: texts[index] });
+                  gsap.to(textElement, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.3,
+                    ease: "power3.inOut",
+                  });
+                },
+              });
 
-            gsap.to(imageElement, {
-              opacity: 0,
-              y: 50,
-              duration: 0.3,
-              ease: "power2.inOut",
-              onComplete: () => {
-                setCurrentImage(images[index]);
-                gsap.set(imageElement, { opacity: 0 });
-                gsap.set(overlayElement, {
-                  height: "100%",
-                  transformOrigin: "top",
-                });
-                gsap.to(imageElement, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.3,
-                  ease: "power2.inOut",
-                });
-                gsap.to(overlayElement, {
-                  height: "0%",
-                  duration: 1,
-                  ease: "power3.inOut",
-                });
-              },
-            });
+              gsap.to(imageElement, {
+                opacity: 0,
+                y: 50,
+                duration: 0.3,
+                ease: "power2.inOut",
+                onComplete: () => {
+                  setCurrentImage(images[index]);
+                  gsap.set(imageElement, { opacity: 0 });
+                  gsap.set(overlayElement, {
+                    height: "100%",
+                    transformOrigin: "top",
+                  });
+                  gsap.to(imageElement, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.3,
+                    ease: "power2.inOut",
+                  });
+                  gsap.to(overlayElement, {
+                    height: "0%",
+                    duration: 1,
+                    ease: "power3.inOut",
+                  });
+                },
+              });
+            }
           }
         },
       });

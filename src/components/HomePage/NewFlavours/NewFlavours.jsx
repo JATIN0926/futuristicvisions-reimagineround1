@@ -12,7 +12,7 @@ import {
 import OurFlavours from "./OurFlavours";
 import { gsap } from "gsap";
 import "./style.css";
-import { CustomLink } from "@/components/CustomLink/CustomLink";
+import { CustomLink } from "@/components/utils/CustomLink/CustomLink";
 
 const NewFlavours = () => {
   const container = useRef();

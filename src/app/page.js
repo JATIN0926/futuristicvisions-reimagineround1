@@ -37,7 +37,7 @@ export default function Home() {
     <div className="relative">
       {!loaded && <Loader onLoaded={handleLoaded} />}
       <div
-        className={`flex flex-col max-w-[100vw] transition-opacity duration-500 gap-8 ${
+        className={`flex flex-col max-w-[100vw] transition-opacity duration-500 gap-10 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
       >

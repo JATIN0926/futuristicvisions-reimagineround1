@@ -3,72 +3,95 @@ import React, { useState, useEffect, forwardRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "./style.css";
-import { CustomLink } from "@/components/CustomLink/CustomLink";
+import { CustomLink } from "@/components/utils/CustomLink/CustomLink";
 
 const Navbar = forwardRef((props, ref) => {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [visible, setVisible] = useState(true);
 
+  const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+      const context = this;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  };
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > scrollY && window.scrollY > 100) {
-        setVisible(false);
-      } else {
-        setVisible(true);
+      const currentScrollY = window.scrollY;
+
+      // Only update visibility if there is a significant scroll difference
+      if (Math.abs(currentScrollY - scrollY) > 10) {
+        if (currentScrollY > scrollY && currentScrollY > 100) {
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+        setScrollY(currentScrollY);
       }
-      setScrollY(window.scrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const debouncedHandleScroll = debounce(handleScroll, 100);
+
+    window.addEventListener("scroll", debouncedHandleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", debouncedHandleScroll);
     };
   }, [scrollY]);
 
   return (
     <div
-      className={`outer-nav fixed top-0 left-0 right-0 z-50  border-b-black border-[1px] transition-transform duration-300 ease-in-out ${
+      className={`outer-nav fixed top-0 left-0 right-0 z-50 border-b-black border-[1px] transition-transform duration-300 ease-in-out ${
         visible ? "translate-y-0" : "-translate-y-full"
       } p-3 w-full px-6 pr-4 mbXSmall:pr-6 mbSmall:pr-8 mbMedium:pr-16 tbPortrait:pr-24 ${
         props.productPage ? "bg-[#006240]" : "bg-[#F1F0EA]"
       }`}
     >
-      <div className="navbar font-sodo-sans">
+      <div className="navbar gap-[5rem] mbXSmall:gap-[7rem] mbSmall:gap-[12rem] mbMedium:gap-[2.7rem] laptop:gap-[6rem] tbPortrait:gap-[9rem] tbMedium:gap-[11rem] font-sodo-sans">
         <nav
           className={`${
             props.productPage ? "text-[#ECECEC]" : " "
-          } hidden mbMedium:flex items-center justify-center gap-6 laptop:gap-8 mbMedium:text-xs laptop:text-sm tbPortrait:text-base tbLandscape:text-xl`}
+          } hidden mbMedium:flex items-center justify-center gap-4 tbPortrait:gap-8 tbMedium:gap-11 mbMedium:text-xs laptop:text-[0.8rem] tbPortrait:text-base tbLandscape:text-xl`}
         >
-          <CustomLink
-            href="/product-page"
-            className={`hover:${
-              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+          <div
+            className={`${
+              props.productPage
+                ? "hover:text-[#F0DFB0]"
+                : "hover:text-[#006240]"
             } hover:font-medium font-light transition-all duration-500`}
           >
-            Menu
-          </CustomLink>
+            <CustomLink href="/product-page">Menu</CustomLink>
+          </div>
           <Link
             href=""
-            className={`hover:${
-              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            className={`${
+              props.productPage
+                ? "hover:text-[#F0DFB0]"
+                : "hover:text-[#006240]"
             } hover:font-medium font-light transition-all duration-500`}
           >
             Gift & Rewards
           </Link>
           <Link
             href=""
-            className={`hover:${
-              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            className={`${
+              props.productPage
+                ? "hover:text-[#F0DFB0]"
+                : "hover:text-[#006240]"
             } hover:font-medium font-light transition-all duration-500`}
           >
             Our Coffee
           </Link>
           <Link
             href=""
-            className={`hover:${
-              props.productPage ? "text-[#F0DFB0]" : "text-[#006240]"
+            className={`${
+              props.productPage
+                ? "hover:text-[#F0DFB0]"
+                : "hover:text-[#006240]"
             } hover:font-medium font-light transition-all duration-500`}
           >
             Store

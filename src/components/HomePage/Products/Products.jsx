@@ -4,7 +4,6 @@ import EmblaCarousel from "./EmblaCarousel";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import "./style.css";
-import { CustomLink } from "@/components/CustomLink/CustomLink";
 
 const OPTIONS = { dragFree: true };
 
